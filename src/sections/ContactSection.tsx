@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/Button';
 import { fadeUp, staggerContainer } from '@/lib/variants';
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_ADDRESS } from '@/lib/constants';
+import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_PHONE_2, CONTACT_ADDRESS } from '@/lib/constants';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -92,10 +92,13 @@ export const ContactSection = memo(() => {
                 <span className="font-mono">{CONTACT_EMAIL}</span>
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
-                <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-[var(--gold)]" />
                 </div>
-                <span className="font-mono">{CONTACT_PHONE}</span>
+                <div className="flex flex-col" dir="ltr">
+                  <span className="font-mono">{CONTACT_PHONE_1}</span>
+                  <span className="font-mono text-[var(--text-muted)] mt-1">{CONTACT_PHONE_2}</span>
+                </div>
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
                 <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
@@ -119,12 +122,17 @@ export const ContactSection = memo(() => {
                 <div>
                   <label className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.name')}</label>
                   <input
+                    type="text"
+                    id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold)] transition-colors"
+                    className={`w-full bg-[var(--bg-elevated)] border ${errors.name ? 'border-[var(--danger)]' : 'border-[var(--border-subtle)]'} rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold-500)] focus-visible:ring-2 focus-visible:ring-[var(--gold-500)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] transition-colors`}
+                    placeholder={t('contact.form.namePlaceholder')}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "name-error" : undefined}
                   />
-                  {errors.name && <p className="text-[var(--danger)] text-xs mt-1">{errors.name}</p>}
+                  {errors.name && <p id="name-error" className="text-[var(--danger)] text-xs mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.company')}</label>
@@ -132,46 +140,60 @@ export const ContactSection = memo(() => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold)] transition-colors"
+                    className={`w-full bg-[var(--bg-elevated)] border ${errors.company ? 'border-[var(--danger)]' : 'border-[var(--border-subtle)]'} rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold-500)] focus-visible:ring-2 focus-visible:ring-[var(--gold-500)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] transition-colors`}
+                    aria-invalid={!!errors.company}
+                    aria-describedby={errors.company ? "company-error" : undefined}
                   />
+                  {errors.company && <p id="company-error" className="text-[var(--danger)] text-xs mt-1">{errors.company}</p>}
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.email')}</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.email')}</label>
                   <input
+                    type="email"
+                    id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold)] transition-colors rtl:text-right"
+                    className={`w-full bg-[var(--bg-elevated)] border ${errors.email ? 'border-[var(--danger)]' : 'border-[var(--border-subtle)]'} rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold-500)] focus-visible:ring-2 focus-visible:ring-[var(--gold-500)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] transition-colors rtl:text-right`}
                     dir="ltr"
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? "email-error" : undefined}
                   />
-                  {errors.email && <p className="text-[var(--danger)] text-xs mt-1">{errors.email}</p>}
+                  {errors.email && <p id="email-error" className="text-[var(--danger)] text-xs mt-1">{errors.email}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.phone')}</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.phone')}</label>
                   <input
+                    type="tel"
+                    id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold)] transition-colors rtl:text-right"
+                    className={`w-full bg-[var(--bg-elevated)] border ${errors.phone ? 'border-[var(--danger)]' : 'border-[var(--border-subtle)]'} rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold-500)] focus-visible:ring-2 focus-visible:ring-[var(--gold-500)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] transition-colors rtl:text-right`}
                     dir="ltr"
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? "phone-error" : undefined}
                   />
-                  {errors.phone && <p className="text-[var(--danger)] text-xs mt-1">{errors.phone}</p>}
+                  {errors.phone && <p id="phone-error" className="text-[var(--danger)] text-xs mt-1">{errors.phone}</p>}
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.message')}</label>
+                <label htmlFor="message" className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.message')}</label>
                 <textarea
+                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold)] transition-colors resize-none"
+                  className={`w-full bg-[var(--bg-elevated)] border ${errors.message ? 'border-[var(--danger)]' : 'border-[var(--border-subtle)]'} rounded-lg px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-[var(--gold-500)] focus-visible:ring-2 focus-visible:ring-[var(--gold-500)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] transition-colors resize-none`}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? "message-error" : undefined}
                 />
-                {errors.message && <p className="text-[var(--danger)] text-xs mt-1">{errors.message}</p>}
+                {errors.message && <p id="message-error" className="text-[var(--danger)] text-xs mt-1">{errors.message}</p>}
               </div>
 
               <Button 

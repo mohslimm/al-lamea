@@ -20,12 +20,12 @@ export const Header = memo(() => {
   }, []);
 
   const navLinks = [
-    { label: t('nav.home'), href: '#home' },
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.products'), href: '#products' },
-    { label: t('nav.brands'), href: '#brands' },
-    { label: t('nav.production'), href: '#production' },
-    { label: t('nav.contact'), href: '#contact' },
+    { label: t('nav.home'), href: '/#home' },
+    { label: t('nav.about'), href: '/#about' },
+    { label: t('nav.products'), href: '/#products' },
+    { label: t('nav.brands'), href: '/#brands' },
+    { label: t('nav.production'), href: '/#production' },
+    { label: t('nav.contact'), href: '/#contact' },
   ];
 
   return (
@@ -43,8 +43,8 @@ export const Header = memo(() => {
           
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="block transition-transform hover:scale-105 duration-300">
-              <img src="/logo.png" alt="AL LAMIAA / اللامع" className="h-16 md:h-20 w-auto object-contain" />
+            <a href="/#home" className="block transition-transform hover:scale-105 duration-300">
+              <img src="/logo.png" alt="AL LAMEA / اللامع" width="200" height="80" className="h-16 md:h-20 w-auto object-contain" />
             </a>
           </div>
 
@@ -64,7 +64,7 @@ export const Header = memo(() => {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-6 rtl:space-x-reverse">
             <LanguageToggle />
-            <a href="#distributor">
+            <a href="/#distributor">
               <Button variant="ghost" className="h-10 px-5 text-sm">
                 {t('common.becomeDistributor')}
               </Button>
@@ -92,7 +92,7 @@ export const Header = memo(() => {
             className="fixed inset-0 z-50 bg-[var(--bg-void)] bg-opacity-95 backdrop-blur-xl flex flex-col pt-[36px]"
           >
             <div className="flex justify-between items-center p-6 border-b border-[var(--border-subtle)]">
-              <img src="/logo.png" alt="AL LAMIAA" className="h-12 w-auto object-contain" />
+              <img src="/logo.png" alt="AL LAMEA" width="150" height="48" className="h-12 w-auto object-contain" />
               <button onClick={() => setIsMobileMenuOpen(false)} className="text-[var(--text-primary)]">
                 <X className="w-6 h-6" />
               </button>
@@ -115,7 +115,7 @@ export const Header = memo(() => {
               
               <div className="pt-8 flex flex-col items-center space-y-6">
                 <LanguageToggle />
-                <a href="#distributor" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="/#distributor" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="ghost">{t('common.becomeDistributor')}</Button>
                 </a>
               </div>

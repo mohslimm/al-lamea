@@ -1,81 +1,81 @@
 {
   "common": {
-    "viewMore": "View More",
-    "comingSoon": "Coming Soon",
-    "becomeDistributor": "Become a Distributor"
+    "viewMore": "View Details",
+    "comingSoon": "In Development",
+    "becomeDistributor": "Partner With Us"
   },
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "products": "Products",
-    "brands": "Brands",
-    "production": "Production",
+    "home": "Overview",
+    "about": "Infrastructure",
+    "products": "Chemicals & Care",
+    "brands": "Partners",
+    "production": "Manufacturing",
     "contact": "Contact"
   },
   "hero": {
-    "badge": "AL TARIQ AL LAMIAA GROUP — LIBYA",
-    "title": "Your Trusted Partner for Automotive Care in Libya",
-    "subtitle": "Production · Importation · Distribution",
-    "ctaPrimary": "Discover Our Products",
-    "ctaSecondary": "Become a Distributor"
+    "badge": "AL TARIQ AL LAMEA GROUP — LIBYA",
+    "title": "Industrial-Grade Automotive Care & Distribution",
+    "subtitle": "Advanced Local Manufacturing. Certified Global Supply Chain. Exclusive Distribution.",
+    "ctaPrimary": "Explore Product Lines",
+    "ctaSecondary": "Corporate Partnerships"
   },
   "stats": {
-    "years": "Years of Group Experience",
-    "brands": "Global Automotive Brands",
-    "continents": "Continents of Partners",
-    "commitment": "Committed to Libya"
+    "years": "Decades of Market Leadership",
+    "brands": "Certified Global Partners",
+    "continents": "International Supply Chain",
+    "commitment": "Dedicated Libyan Infrastructure"
   },
   "about": {
     "pillars": {
-      "production": "Manufacturing in Libya",
-      "productionDesc": "Local production of high-quality automotive care products.",
-      "importation": "World's best products",
-      "importationDesc": "Sourcing and importing premium brands for our local market.",
-      "representation": "Exclusive Libyan distributor",
-      "representationDesc": "Acting as the exclusive distributor for global automotive leaders."
+      "production": "Advanced Local Manufacturing",
+      "productionDesc": "Operating state-of-the-art facilities to produce certified automotive fluids and care chemicals at scale.",
+      "importation": "Premium Global Sourcing",
+      "importationDesc": "Securing and importing elite international automotive brands tailored for the North African climate.",
+      "representation": "Exclusive Authorized Distributor",
+      "representationDesc": "Acting as the sole certified distributor for leading global automotive chemical manufacturers in Libya."
     }
   },
   "products": {
-    "wash": "Car Wash & Daily Cleaning",
-    "washDesc": "Professional washing solutions that turn every station into a premium service center. Active foam, touchless systems, tire care — engineered for Libya's busiest operators.",
-    "fluids": "Automotive Fluids",
-    "fluidsDesc": "G12, G13, Glaceol-type coolants built for Libya's demanding heat. OEM-grade protection, engineered for the road conditions your clients face every day.",
-    "protection": "Protection & Maintenance",
-    "protectionDesc": "Waxes, ceramic coatings, paint films, glass treatments. Professional-grade products that make every vehicle shine — and keep it that way."
+    "wash": "Commercial Wash Systems",
+    "washDesc": "Industrial-grade active foams, touchless detergents, and high-volume cleaning agents engineered for high-traffic service stations.",
+    "fluids": "Performance Fluids",
+    "fluidsDesc": "OEM-compliant coolants (G12, G13) and essential fluids formulated specifically to withstand extreme temperature variations.",
+    "protection": "Advanced Surface Protection",
+    "protectionDesc": "Professional ceramic coatings, sealants, and premium waxes designed for specialized detailing centers and high-end automotive care."
   },
   "catalogue": {
-    "download": "Download Our Product Catalogue"
+    "download": "Access Technical Data & Catalogue"
   },
   "brands": {
-    "title": "The Official Bridge Between Global Leaders and Libya",
-    "exclusive": "Official Exclusive Distributor — Libya",
-    "comingSoon": "Partner Brands Coming Soon",
-    "becomePartner": "Are you a global brand? Become our exclusive Libyan partner →",
-    "viewPartnership": "View Partnership"
+    "title": "The Strategic Bridge Between Global Leaders and Libya",
+    "exclusive": "Exclusive Authorized Distributor — Libya",
+    "comingSoon": "Strategic Partnerships In Progress",
+    "becomePartner": "For International Manufacturers requiring Libyan Market Entry →",
+    "viewPartnership": "Review Alliance Details"
   },
   "production": {
-    "pricing": "Competitive Pricing",
-    "pricingDesc": "Stable, accessible prices for the Libyan market.",
-    "jobs": "Local Job Creation",
-    "jobsDesc": "Skilled manufacturing jobs built in Libya.",
-    "hub": "North Africa Hub",
-    "hubDesc": "Serving the wider North African region."
+    "pricing": "Optimized Cost Structure",
+    "pricingDesc": "Leveraging local manufacturing to provide highly competitive, stable pricing without currency fluctuation risks.",
+    "jobs": "Industrial Job Creation",
+    "jobsDesc": "Investing in local infrastructure and skilled technical workforce development.",
+    "hub": "Regional Distribution Hub",
+    "hubDesc": "Positioning Libya as a central logistical access point for broader North African distribution."
   },
   "distributor": {
-    "label": "FOR INTERNATIONAL BRANDS",
-    "title": "Your Gateway to Libya",
-    "desc": "Are you a global automotive care brand looking to enter the Libyan market? AL LAMIAA offers exclusive distribution agreements, full market coverage, and a Group with a decade of automotive expertise across Libya.",
-    "cta": "Become Our Exclusive Partner"
+    "label": "FOR INTERNATIONAL MANUFACTURERS",
+    "title": "Your Strategic Gateway to the Libyan Market",
+    "desc": "AL LAMEA provides international manufacturers with immediate access to a robust B2B network, dedicated logistics, and unparalleled market penetration across Libya.",
+    "cta": "Initiate Partnership Discussion"
   },
   "contact": {
-    "text": "Are you a petrol station operator, garage owner, retailer, or an international brand looking for an exclusive partner in Libya? We would be glad to hear from you.",
+    "text": "Whether you operate a commercial service network or represent an international brand seeking market entry, our commercial team is ready to assist you.",
     "form": {
-      "name": "Full Name",
-      "company": "Company",
-      "email": "Email",
-      "phone": "Phone",
-      "message": "Message",
-      "submit": "Send Message"
+      "name": "Full Name / Representative",
+      "company": "Organization Name",
+      "email": "Business Email",
+      "phone": "Direct Phone Number",
+      "message": "Inquiry Details",
+      "submit": "Submit Inquiry"
     }
   }
 }

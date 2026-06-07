@@ -79,7 +79,13 @@ export const BrandSection = memo(() => {
                   className="group relative w-full h-[140px] rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center overflow-hidden transition-all duration-300 hover:border-[var(--border-gold)] hover:shadow-[0_0_30px_var(--gold-glow)]"
                 >
                   {brand.logoUrl ? (
-                    <img src={brand.logoUrl} alt={brand.name} className="max-w-[80%] max-h-[60%] object-contain opacity-70 group-hover:opacity-100 transition-opacity" />
+                    <img 
+                      src={brand.logoUrl} 
+                      alt={brand.name} 
+                      width="400"
+                      height="400"
+                      className="max-w-[80%] max-h-[60%] object-contain opacity-70 group-hover:opacity-100 transition-opacity" 
+                    />
                   ) : (
                     <span className="font-display text-xl text-[var(--text-primary)] opacity-70 group-hover:opacity-100">{brand.name}</span>
                   )}

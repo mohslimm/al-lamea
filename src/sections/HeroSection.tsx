@@ -9,10 +9,7 @@ export const HeroSection = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-[100px] overflow-hidden bg-[var(--bg-void)]">
-      {/* Background with Grain & Gradients */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--bg-elevated)_0%,var(--bg-void)_100%)] opacity-80" />
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiAvPgo8L3N2Zz4=')]" style={{ backgroundSize: '100px 100px' }} />
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-[100px] overflow-hidden">
       
       {/* Rotating Hexagon */}
       <motion.div 

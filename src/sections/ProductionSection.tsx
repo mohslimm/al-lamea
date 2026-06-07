@@ -48,7 +48,7 @@ export const ProductionSection = memo(() => {
               Proudly Manufacturing in Libya
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[var(--text-muted)] text-lg leading-relaxed mb-8 max-w-2xl">
-              AL LAMIAA is committed to localizing the automotive care industry. By bringing manufacturing to Libyan soil, we ensure consistent supply, rigorous quality control adapted to local conditions, and economic growth for our community.
+              AL LAMEA is committed to localizing the automotive care industry. By bringing manufacturing to Libyan soil, we ensure consistent supply, rigorous quality control adapted to local conditions, and economic growth for our community.
             </motion.p>
 
             <motion.div variants={fadeUp} className="relative h-px w-full max-w-md bg-[var(--border-subtle)] overflow-hidden">

@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { LanguageToggle } from './LanguageToggle';
+import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_PHONE_2, CONTACT_ADDRESS } from '../lib/constants';
 
 export const Footer = memo(() => {
   const { t } = useTranslation();
@@ -8,30 +10,73 @@ export const Footer = memo(() => {
   return (
     <footer className="bg-[var(--bg-primary)] border-t border-[var(--border-subtle)] pt-16 pb-8">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <div className="text-center md:text-left rtl:md:text-right mb-6 md:mb-0 flex flex-col items-center md:items-start rtl:md:items-end">
-            <img src="/logo.png" alt="AL LAMIAA / اللامع" className="h-20 w-auto object-contain mb-6" />
-            <p className="text-[var(--text-muted)] text-sm">
-              Part of AL TARIQ AL LAMIAA GROUP
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Brand & Info */}
+          <div className="col-span-1 md:col-span-1 flex flex-col items-center md:items-start rtl:md:items-end text-center md:text-left rtl:md:text-right">
+            <img src="/logo.png" alt="AL LAMEA / اللامع" width="200" height="80" className="h-20 w-auto object-contain mb-6" />
+            <p className="text-[var(--text-muted)] text-sm mb-4">
+              Premium automotive care and industrial solutions.
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6">
-            <a href="#about" className="text-[var(--text-muted)] hover:text-[var(--gold)] text-sm transition-colors">{t('nav.about')}</a>
-            <a href="#products" className="text-[var(--text-muted)] hover:text-[var(--gold)] text-sm transition-colors">{t('nav.products')}</a>
-            <a href="#brands" className="text-[var(--text-muted)] hover:text-[var(--gold)] text-sm transition-colors">{t('nav.brands')}</a>
-            <a href="#contact" className="text-[var(--text-muted)] hover:text-[var(--gold)] text-sm transition-colors">{t('nav.contact')}</a>
+          {/* Contact Details */}
+          <div className="col-span-1 md:col-span-1">
+            <h4 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('nav.contact')}</h4>
+            <div className="space-y-2 text-[var(--text-muted)] text-sm">
+              <p><a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-[var(--gold-500)] transition-colors">{CONTACT_EMAIL}</a></p>
+              <p>
+                <a href={`tel:${CONTACT_PHONE_1.replace(/\s+/g, '')}`} className="hover:text-[var(--gold-500)] transition-colors" dir="ltr">{CONTACT_PHONE_1}</a>
+                <span className="mx-2">|</span>
+                <a href={`tel:${CONTACT_PHONE_2.replace(/\s+/g, '')}`} className="hover:text-[var(--gold-500)] transition-colors" dir="ltr">{CONTACT_PHONE_2}</a>
+              </p>
+              <p>{CONTACT_ADDRESS}</p>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="col-span-1 md:col-span-1">
+            <h4 className="text-[var(--text-primary)] font-display text-lg mb-4">Navigation</h4>
+            <div className="space-y-2 flex flex-col">
+              <a href="/#about" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">{t('nav.about')}</a>
+              <a href="/#products" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">{t('nav.products')}</a>
+              <a href="/#brands" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">{t('nav.brands')}</a>
+            </div>
+          </div>
+
+          {/* Legal Links */}
+          <div className="col-span-1 md:col-span-1">
+            <h4 className="text-[var(--text-primary)] font-display text-lg mb-4">Legal</h4>
+            <div className="space-y-2 flex flex-col">
+              <Link to="/privacy-policy" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">Privacy Policy</Link>
+              <Link to="/terms-conditions" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">Terms & Conditions</Link>
+              <Link to="/cookie-policy" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">Cookie Policy</Link>
+              <Link to="/legal-notice" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">Legal Notice</Link>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-[var(--border-subtle)] pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-[var(--text-muted)] text-xs mb-4 md:mb-0">
-            © {new Date().getFullYear()} AL LAMIAA — AL TARIQ AL LAMIAA GROUP
+        <div className="border-t border-[var(--border-subtle)] pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[var(--text-muted)] text-xs">
+            © {new Date().getFullYear()} AL TARIQ AL LAMEA GROUP. All rights reserved.
           </p>
           
           <div className="flex items-center space-x-4 rtl:space-x-reverse">
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+
+          <div>
             <LanguageToggle />
-            {/* Add Social Icons here if needed */}
           </div>
         </div>
       </div>

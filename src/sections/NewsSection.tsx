@@ -15,7 +15,7 @@ const NEWS: NewsItem[] = [
     categoryAR: 'شراكة',
     title: 'New International Partnership Announced',
     titleAR: 'إعلان عن شراكة دولية جديدة',
-    excerpt: 'AL LAMIAA strengthens its global network with a new exclusive agreement...',
+    excerpt: 'AL LAMEA strengthens its global network with a new exclusive agreement...',
     excerptAR: 'تعزز اللامع شبكتها العالمية باتفاقية حصرية جديدة...',
     date: '2025',
     status: 'coming-soon'

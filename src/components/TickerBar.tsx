@@ -6,7 +6,7 @@ export const TickerBar = memo(() => {
   const { i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
 
-  const EN_TEXT = "AL TARIQ AL LAMIAA GROUP  ◆  10+ YEARS IN AUTOMOTIVE  ◆  3 GLOBAL BRANDS  ◆  PARTNERS ON 4 CONTINENTS  ◆  LIBYA'S TRUSTED DISTRIBUTOR  ◆  ";
+  const EN_TEXT = "AL TARIQ AL LAMEA GROUP  ◆  10+ YEARS IN AUTOMOTIVE  ◆  3 GLOBAL BRANDS  ◆  PARTNERS ON 4 CONTINENTS  ◆  LIBYA'S TRUSTED DISTRIBUTOR  ◆  ";
   const AR_TEXT = "مجموعة الطريق اللامع  ◆  +10 سنوات في قطاع السيارات  ◆  3 علامات عالمية  ◆  شركاء في 4 قارات  ◆  الموزع الموثوق في ليبيا  ◆  ";
 
   const text = isRTL ? AR_TEXT : EN_TEXT;
