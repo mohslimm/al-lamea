@@ -1,0 +1,81 @@
+{
+  "common": {
+    "viewMore": "View More",
+    "comingSoon": "Coming Soon",
+    "becomeDistributor": "Become a Distributor"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "brands": "Brands",
+    "production": "Production",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "AL TARIQ AL LAMIAA GROUP — LIBYA",
+    "title": "Your Trusted Partner for Automotive Care in Libya",
+    "subtitle": "Production · Importation · Distribution",
+    "ctaPrimary": "Discover Our Products",
+    "ctaSecondary": "Become a Distributor"
+  },
+  "stats": {
+    "years": "Years of Group Experience",
+    "brands": "Global Automotive Brands",
+    "continents": "Continents of Partners",
+    "commitment": "Committed to Libya"
+  },
+  "about": {
+    "pillars": {
+      "production": "Manufacturing in Libya",
+      "productionDesc": "Local production of high-quality automotive care products.",
+      "importation": "World's best products",
+      "importationDesc": "Sourcing and importing premium brands for our local market.",
+      "representation": "Exclusive Libyan distributor",
+      "representationDesc": "Acting as the exclusive distributor for global automotive leaders."
+    }
+  },
+  "products": {
+    "wash": "Car Wash & Daily Cleaning",
+    "washDesc": "Professional washing solutions that turn every station into a premium service center. Active foam, touchless systems, tire care — engineered for Libya's busiest operators.",
+    "fluids": "Automotive Fluids",
+    "fluidsDesc": "G12, G13, Glaceol-type coolants built for Libya's demanding heat. OEM-grade protection, engineered for the road conditions your clients face every day.",
+    "protection": "Protection & Maintenance",
+    "protectionDesc": "Waxes, ceramic coatings, paint films, glass treatments. Professional-grade products that make every vehicle shine — and keep it that way."
+  },
+  "catalogue": {
+    "download": "Download Our Product Catalogue"
+  },
+  "brands": {
+    "title": "The Official Bridge Between Global Leaders and Libya",
+    "exclusive": "Official Exclusive Distributor — Libya",
+    "comingSoon": "Partner Brands Coming Soon",
+    "becomePartner": "Are you a global brand? Become our exclusive Libyan partner →",
+    "viewPartnership": "View Partnership"
+  },
+  "production": {
+    "pricing": "Competitive Pricing",
+    "pricingDesc": "Stable, accessible prices for the Libyan market.",
+    "jobs": "Local Job Creation",
+    "jobsDesc": "Skilled manufacturing jobs built in Libya.",
+    "hub": "North Africa Hub",
+    "hubDesc": "Serving the wider North African region."
+  },
+  "distributor": {
+    "label": "FOR INTERNATIONAL BRANDS",
+    "title": "Your Gateway to Libya",
+    "desc": "Are you a global automotive care brand looking to enter the Libyan market? AL LAMIAA offers exclusive distribution agreements, full market coverage, and a Group with a decade of automotive expertise across Libya.",
+    "cta": "Become Our Exclusive Partner"
+  },
+  "contact": {
+    "text": "Are you a petrol station operator, garage owner, retailer, or an international brand looking for an exclusive partner in Libya? We would be glad to hear from you.",
+    "form": {
+      "name": "Full Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message"
+    }
+  }
+}

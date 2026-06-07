@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #06090F;
+  --color-navy: #0B1929;
+  --color-navy-light: #112238;
+  --color-gold: #C4922A;
+  --color-gold-light: #E0B458;
+  --color-gold-muted: #8A6420;
+  --color-white: #FFFFFF;
+  --color-off-white: #F4F1EC;
+  --color-muted: #8B97A8;
+
+  --color-bg-void: #060610;
+  --color-bg-primary: #0a0a14;
+  --color-bg-surface: #0f0f20;
+  --color-bg-elevated: #14142a;
+  --color-gold-500: #c5a059;
+  --color-gold-400: #e8c77a;
+  --color-gold-glow: rgba(197,160,89,0.12);
+  --color-text-primary: #f0ede8;
+  --color-text-muted: rgba(240,237,232,0.45);
+  --color-border-subtle: rgba(255,255,255,0.07);
+  --color-border-gold: rgba(197,160,89,0.30);
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+
+  --font-display-en: "Cormorant Garamond", serif;
+  --font-body-en: "Outfit", sans-serif;
+  --font-display-ar: "Noto Serif Arabic", serif;
+  --font-body-ar: "Cairo", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --font-code: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  :root {
+    --void: #06090F;
+    --navy: #0B1929;
+    --navy-light: #112238;
+    --gold: #C4922A;
+    --gold-light: #E0B458;
+    --gold-muted: #8A6420;
+    --white: #FFFFFF;
+    --off-white: #F4F1EC;
+    --muted: #8B97A8;
+    --divider: rgba(196, 146, 42, 0.15);
+    --glass: rgba(11, 25, 41, 0.7);
+
+    --bg-void: #060610;
+    --bg-primary: #0a0a14;
+    --bg-surface: #0f0f20;
+    --bg-elevated: #14142a;
+    --gold-500: #c5a059;
+    --gold-400: #e8c77a;
+    --gold-glow: rgba(197,160,89,0.12);
+    --text-primary: #f0ede8;
+    --text-muted: rgba(240,237,232,0.45);
+    --border-subtle: rgba(255,255,255,0.07);
+    --border-gold: rgba(197,160,89,0.30);
+    --success: #22c55e;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+  }
+
+  :root[lang="ar"] {
+    --font-display: var(--font-display-ar);
+    --font-body: var(--font-body-ar);
+  }
+  
+  :root[lang="en"] {
+    --font-display: var(--font-display-en);
+    --font-body: var(--font-body-en);
+  }
+  
+  :root {
+    font-family: var(--font-body);
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-33.33%); }
+  }
+
+  @keyframes marquee-rtl {
+    from { transform: translateX(0); }
+    to { transform: translateX(33.33%); }
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@utility animate-marquee-rtl {
+  animation: marquee-rtl 20s linear infinite;
+}
