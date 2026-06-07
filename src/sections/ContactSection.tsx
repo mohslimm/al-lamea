@@ -1,12 +1,12 @@
-import { memo, useState } from 'react';
+import { memo, useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { z } from 'zod';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/Button';
 import { fadeUp, staggerContainer } from '@/lib/variants';
-import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_PHONE_2, CONTACT_ADDRESS } from '@/lib/constants';
+import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_PHONE_2, CONTACT_WHATSAPP, CONTACT_ADDRESS } from '@/lib/constants';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -32,20 +32,45 @@ export const ContactSection = memo(() => {
     }
   };
 
+  const abortControllerRef = useRef<AbortController | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
+
   const handleSubmit = async () => {
     try {
       setStatus('loading');
       setErrors({});
       contactSchema.parse(formData);
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+      abortControllerRef.current = new AbortController();
+
+      const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT || "https://formspree.io/f/placeholder";
+      
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+        signal: abortControllerRef.current.signal,
+      });
+
+      if (!res.ok) throw new Error("HTTP Error");
+
       setStatus('success');
       setFormData({ name: '', company: '', email: '', phone: '', message: '' });
       
-      // Reset success message after 3 seconds
-      setTimeout(() => setStatus('idle'), 3000);
-    } catch (error) {
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (error: any) {
+      if (error.name === 'AbortError') return;
+
       if (error instanceof z.ZodError) {
         const newErrors: Partial<Record<keyof ContactFormData, string>> = {};
         error.issues.forEach((err: z.ZodIssue) => {
@@ -54,8 +79,10 @@ export const ContactSection = memo(() => {
           }
         });
         setErrors(newErrors);
+        setStatus('idle');
+      } else {
+        setStatus('error');
       }
-      setStatus('error');
     }
   };
 
@@ -78,7 +105,7 @@ export const ContactSection = memo(() => {
               variants={fadeUp}
               className="text-3xl md:text-5xl font-display text-[var(--text-primary)] mb-8 leading-tight"
             >
-              Let's Build Something Great Together
+              {t('contact.title')}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[var(--text-muted)] text-lg leading-relaxed mb-12">
               {t('contact.text')}
@@ -99,6 +126,12 @@ export const ContactSection = memo(() => {
                   <span className="font-mono">{CONTACT_PHONE_1}</span>
                   <span className="font-mono text-[var(--text-muted)] mt-1">{CONTACT_PHONE_2}</span>
                 </div>
+              </motion.div>
+              <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
+                <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                </div>
+                <span className="font-mono" dir="ltr">{CONTACT_WHATSAPP}</span>
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
                 <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
