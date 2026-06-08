@@ -10,9 +10,9 @@ export const DistributorSection = memo(() => {
   const { t } = useTranslation();
 
   const features = [
-    { icon: <Handshake className="w-8 h-8" />, label: "Exclusive Agreement" },
-    { icon: <Box className="w-8 h-8" />, label: "Full Distribution Coverage" },
-    { icon: <Trophy className="w-8 h-8" />, label: "10+ Years Group Expertise" }
+    { icon: <Handshake className="w-8 h-8" />, label: t('distributor.perks.exclusive') },
+    { icon: <Box className="w-8 h-8" />, label: t('distributor.perks.coverage') },
+    { icon: <Trophy className="w-8 h-8" />, label: t('distributor.perks.expertise') }
   ];
 
   return (
@@ -61,7 +61,7 @@ export const DistributorSection = memo(() => {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <a href="#contact">
+            <a href="#contact" target="_blank" rel="noopener noreferrer">
               <Button className="text-lg px-8 py-4 h-auto">{t('distributor.cta')}</Button>
             </a>
           </motion.div>

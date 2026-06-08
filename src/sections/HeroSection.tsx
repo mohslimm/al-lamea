@@ -9,7 +9,7 @@ export const HeroSection = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-[100px] overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-[180px] md:pt-[240px] pb-20 overflow-hidden">
       
       {/* Rotating Hexagon */}
       <motion.div 
@@ -57,25 +57,25 @@ export const HeroSection = memo(() => {
               <Button variant="ghost" className="w-full">{t('hero.ctaSecondary')}</Button>
             </a>
           </motion.div>
+          {/* Scroll indicator */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
+            className="mt-16 md:mt-24"
+          >
+            <motion.a 
+              href="#stats"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="text-[var(--gold)] hover:text-[var(--gold-light)] transition-colors inline-block"
+              aria-label="Scroll down"
+            >
+              <ChevronDown className="w-8 h-8" />
+            </motion.a>
+          </motion.div>
         </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.a 
-            href="#stats"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="text-[var(--gold)] hover:text-[var(--gold-light)] transition-colors inline-block"
-            aria-label="Scroll down"
-          >
-            <ChevronDown className="w-8 h-8" />
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   );

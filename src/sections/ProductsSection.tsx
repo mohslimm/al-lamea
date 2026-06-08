@@ -42,7 +42,7 @@ export const ProductsSection = memo(() => {
             variants={fadeUp}
             className="text-3xl md:text-5xl font-display text-[var(--text-primary)]"
           >
-            Engineered for Excellence
+            {t('products.title')}
           </motion.h2>
         </motion.div>
 

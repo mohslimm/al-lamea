@@ -7,36 +7,7 @@ import { fadeUp, staggerContainer } from '@/lib/variants';
 import type { Brand } from '@/types';
 
 // Placeholder Data - would come from CMS or props in real app
-const BRANDS: Brand[] = [
-  {
-    id: 'brand-1',
-    name: 'AeroShield',
-    description: 'Leading manufacturer of premium automotive ceramic coatings and paint protection systems.',
-    productsInLibya: 'Available in 50+ premium detailing centers.',
-    logoUrl: '/brand-1.png'
-  },
-  {
-    id: 'brand-2',
-    name: 'LubeTech Fluids',
-    description: 'High-performance synthetic oils and coolants engineered for extreme temperatures.',
-    productsInLibya: 'Distributed to over 200 service stations nationwide.',
-    logoUrl: '/brand-2.png'
-  },
-  {
-    id: 'brand-3',
-    name: 'NovaWash',
-    description: 'Professional touchless car wash chemistry and active foam solutions.',
-    productsInLibya: 'The trusted choice for Libya\'s busiest automated wash centers.',
-    logoUrl: '/brand-3.png'
-  },
-  {
-    id: 'brand-4',
-    name: 'Apex Parts',
-    description: 'OEM-grade automotive replacement parts and filters for major vehicle brands.',
-    productsInLibya: 'Exclusive distribution network across all major cities.',
-    logoUrl: '/brand-4.png'
-  }
-];
+const BRANDS: Brand[] = [];
 
 export const BrandSection = memo(() => {
   const { t } = useTranslation();
@@ -87,7 +58,10 @@ export const BrandSection = memo(() => {
                       className="max-w-[80%] max-h-[60%] object-contain opacity-70 group-hover:opacity-100 transition-opacity" 
                     />
                   ) : (
-                    <span className="font-display text-xl text-[var(--text-primary)] opacity-70 group-hover:opacity-100">{brand.name}</span>
+                    <div className="flex flex-col items-center gap-3">
+                      <span className="font-display text-2xl tracking-widest uppercase text-[var(--text-primary)] opacity-80 group-hover:opacity-100 transition-opacity">{brand.name}</span>
+                      <div className="w-6 h-[1px] bg-[var(--gold)] opacity-40 group-hover:w-12 group-hover:opacity-100 transition-all duration-500 ease-out" />
+                    </div>
                   )}
                   
                   <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">

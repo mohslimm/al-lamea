@@ -2,7 +2,8 @@
   "common": {
     "viewMore": "View Details",
     "comingSoon": "In Development",
-    "becomeDistributor": "Partner With Us"
+    "becomeDistributor": "Partner With Us",
+    "needAssistance": "Need assistance?"
   },
   "nav": {
     "home": "Overview",
@@ -26,6 +27,9 @@
     "commitment": "Dedicated Libyan Infrastructure"
   },
   "about": {
+    "title": "Building the Future of Automotive Care in Libya",
+    "desc1": "AL LAMEA is an integral part of the AL TARIQ AL LAMEA GROUP, standing as a pillar of automotive excellence in Libya for over a decade. We specialize in the importation, local production, and exclusive distribution of premium automotive care products.",
+    "desc2": "Our commitment goes beyond simply selling products; we provide comprehensive solutions that empower petrol stations, garages, and retailers across the nation.",
     "pillars": {
       "production": "Advanced Local Manufacturing",
       "productionDesc": "Operating state-of-the-art facilities to produce certified automotive fluids and care chemicals at scale.",
@@ -36,6 +40,7 @@
     }
   },
   "products": {
+    "title": "Engineered for Excellence",
     "wash": "Commercial Wash Systems",
     "washDesc": "Industrial-grade active foams, touchless detergents, and high-volume cleaning agents engineered for high-traffic service stations.",
     "fluids": "Performance Fluids",
@@ -54,6 +59,8 @@
     "viewPartnership": "Review Alliance Details"
   },
   "production": {
+    "subtitle": "Proudly Manufacturing in Libya",
+    "desc": "AL LAMEA is committed to localizing the automotive care industry. By bringing manufacturing to Libyan soil, we ensure consistent supply, rigorous quality control adapted to local conditions, and economic growth for our community.",
     "pricing": "Optimized Cost Structure",
     "pricingDesc": "Leveraging local manufacturing to provide highly competitive, stable pricing without currency fluctuation risks.",
     "jobs": "Industrial Job Creation",
@@ -61,13 +68,31 @@
     "hub": "Regional Distribution Hub",
     "hubDesc": "Positioning Libya as a central logistical access point for broader North African distribution."
   },
+  "news": {
+    "title": "News & Insights",
+    "badge": "LATEST UPDATES"
+  },
+  "future": {
+    "badge": "STRATEGIC INNOVATIONS",
+    "title": "Pioneering the Future of Automotive Solutions",
+    "portalTitle": "AL LAMEA B2B Portal",
+    "portalDesc": "An upcoming exclusive digital dashboard designed for our strategic partners to streamline ordering, track logistics, and access real-time technical data.",
+    "academyTitle": "AL LAMEA Detailing Academy",
+    "academyDesc": "A state-of-the-art training facility currently under construction. It will empower local professionals with master-level certifications in advanced detailing."
+  },
   "distributor": {
     "label": "FOR INTERNATIONAL MANUFACTURERS",
     "title": "Your Strategic Gateway to the Libyan Market",
+    "perks": {
+      "expertise": "10+ Years Group Expertise",
+      "coverage": "Full Distribution Coverage",
+      "exclusive": "Exclusive Agreement"
+    },
     "desc": "AL LAMEA provides international manufacturers with immediate access to a robust B2B network, dedicated logistics, and unparalleled market penetration across Libya.",
     "cta": "Initiate Partnership Discussion"
   },
   "contact": {
+    "address": "Tripoli, Libya",
     "title": "Let's Build Something Great Together",
     "text": "Whether you operate a commercial service network or represent an international brand seeking market entry, our commercial team is ready to assist you.",
     "form": {

@@ -7,7 +7,8 @@ import { Button } from './ui/Button';
 import { LanguageToggle } from './LanguageToggle';
 
 export const Header = memo(() => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const logoSrc = i18n.language === 'ar' ? '/logo-ar.png?v=5' : '/logo.png?v=5';
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -24,8 +25,7 @@ export const Header = memo(() => {
     { label: t('nav.about'), href: '/#about' },
     { label: t('nav.products'), href: '/#products' },
     { label: t('nav.brands'), href: '/#brands' },
-    { label: t('nav.production'), href: '/#production' },
-    { label: t('nav.contact'), href: '/#contact' },
+    { label: t('nav.production'), href: '/#production' }
   ];
 
   return (
@@ -44,7 +44,7 @@ export const Header = memo(() => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/#home" className="block transition-transform hover:scale-105 duration-300">
-              <img src="/logo.png" alt="AL LAMEA / اللامع" width="200" height="80" className="h-16 md:h-20 w-auto object-contain" />
+              <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-20 md:h-28 w-auto object-contain" />
             </a>
           </div>
 
@@ -64,6 +64,11 @@ export const Header = memo(() => {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-6 rtl:space-x-reverse">
             <LanguageToggle />
+            <a href="/#contact">
+              <Button className="h-10 px-5 text-sm bg-[var(--gold)] text-[#1A1200] hover:bg-[var(--gold-light)]">
+                {t('nav.contact')}
+              </Button>
+            </a>
             <a href="/#distributor">
               <Button variant="ghost" className="h-10 px-5 text-sm">
                 {t('common.becomeDistributor')}
@@ -92,7 +97,7 @@ export const Header = memo(() => {
             className="fixed inset-0 z-50 bg-[var(--bg-void)] bg-opacity-95 backdrop-blur-xl flex flex-col pt-[36px]"
           >
             <div className="flex justify-between items-center p-6 border-b border-[var(--border-subtle)]">
-              <img src="/logo.png" alt="AL LAMEA" width="150" height="48" className="h-12 w-auto object-contain" />
+              <img src={logoSrc} alt="AL LAMEA" width="150" height="48" className="h-16 w-auto object-contain" />
               <button onClick={() => setIsMobileMenuOpen(false)} className="text-[var(--text-primary)]">
                 <X className="w-6 h-6" />
               </button>
@@ -115,6 +120,9 @@ export const Header = memo(() => {
               
               <div className="pt-8 flex flex-col items-center space-y-6">
                 <LanguageToggle />
+                <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="w-full bg-[var(--gold)] text-[#1A1200] hover:bg-[var(--gold-light)]">{t('nav.contact')}</Button>
+                </a>
                 <a href="/#distributor" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="ghost">{t('common.becomeDistributor')}</Button>
                 </a>

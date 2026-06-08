@@ -1,11 +1,12 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import type { ComponentType } from "react";
 import { useTranslation } from "react-i18next";
 import { Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
-import { MotionConfig } from "framer-motion";
+import { MotionConfig, AnimatePresence } from "framer-motion";
 
 import Layout from "./layout/Layout";
+import { HybridLoader } from "./components/ui/HybridLoader";
 
 const HomePage = lazy(() =>
   import("./pages/HomePage").then((m) => ({ default: m.HomePage }))
@@ -17,6 +18,7 @@ const LegalPage = lazy<ComponentType<{ type: "privacy" | "terms" | "cookies" | "
 
 function App() {
   const { i18n } = useTranslation();
+  const [isAppReady, setIsAppReady] = useState(false);
 
   useEffect(() => {
     document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
@@ -25,7 +27,13 @@ function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <AnimatePresence>
+        {!isAppReady && (
+          <HybridLoader key="hybrid-loader" onComplete={() => setIsAppReady(true)} />
+        )}
+      </AnimatePresence>
+
+      <Suspense fallback={<div className="min-h-screen bg-[var(--bg-void)]"></div>}>
 
         <Routes>
           <Route element={<Layout />}>

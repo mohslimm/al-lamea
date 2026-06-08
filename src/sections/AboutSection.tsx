@@ -46,13 +46,13 @@ export const AboutSection = memo(() => {
               variants={fadeUp}
               className="text-3xl md:text-5xl font-display text-[var(--text-primary)] leading-tight mb-8"
             >
-              Building the Future of Automotive Care in Libya
+              {t('about.title')}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[var(--text-muted)] text-lg leading-relaxed mb-6">
-              AL LAMEA is an integral part of the AL TARIQ AL LAMEA GROUP, standing as a pillar of automotive excellence in Libya for over a decade. We specialize in the importation, local production, and exclusive distribution of premium automotive care products.
+              {t('about.desc1')}
             </motion.p>
             <motion.p variants={fadeUp} className="text-[var(--text-muted)] text-lg leading-relaxed">
-              Our commitment goes beyond simply selling products; we provide comprehensive solutions that empower petrol stations, garages, and retailers across the nation.
+              {t('about.desc2')}
             </motion.p>
           </motion.div>
 
@@ -63,7 +63,7 @@ export const AboutSection = memo(() => {
             transition={{ duration: 0.8 }}
             className="relative h-[400px] w-full rounded-2xl overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center"
           >
-            <img src="/about-image.png" alt="Automotive Care" width="800" height="400" className="w-full h-full object-cover opacity-80 mix-blend-lighten" />
+            <img src="/infrastructure_premium.png" alt="Automotive Care" width="800" height="400" className="w-full h-full object-cover opacity-90 mix-blend-lighten" />
           </motion.div>
         </div>
 

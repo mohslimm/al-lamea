@@ -1,12 +1,12 @@
 import { memo, useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { z } from 'zod';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/Button';
 import { fadeUp, staggerContainer } from '@/lib/variants';
-import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_PHONE_2, CONTACT_WHATSAPP, CONTACT_ADDRESS } from '@/lib/constants';
+import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_PHONE_2, CONTACT_WHATSAPP } from '@/lib/constants';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -129,7 +129,7 @@ export const ContactSection = memo(() => {
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
                 <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                  <img src="/whatsapp.png?v=6" alt="WhatsApp" className="w-8 h-8 object-contain" />
                 </div>
                 <span className="font-mono" dir="ltr">{CONTACT_WHATSAPP}</span>
               </motion.div>
@@ -137,7 +137,7 @@ export const ContactSection = memo(() => {
                 <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-[var(--gold)]" />
                 </div>
-                <span>{CONTACT_ADDRESS}</span>
+                <span>{t('contact.address')}</span>
               </motion.div>
             </motion.div>
           </motion.div>
