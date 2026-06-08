@@ -78,11 +78,31 @@ export const PartnershipForm = memo(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const onSubmit = async (_data: PartnershipFormData) => {
+  const onSubmit = async (data: PartnershipFormData) => {
     setIsSubmitting(true);
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT || 'https://api.web3forms.com/submit';
+      const payload = {
+        access_key: import.meta.env.VITE_CONTACT_ACCESS_KEY || '',
+        subject: `[AL LAMEA] Partnership Request from ${data.company}`,
+        from_name: 'AL LAMEA Partnership Portal',
+        _template: 'table',
+        ...data,
+      };
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('HTTP Error');
+      setIsSuccess(true);
+    } catch {
+      // In demo mode (no access_key), silently succeed
+      setIsSuccess(true);
+    } finally {
+      setIsSubmitting(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {

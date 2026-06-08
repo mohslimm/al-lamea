@@ -1,13 +1,19 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { FileText } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FileText, X } from 'lucide-react';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/Button';
 import { fadeUp, staggerContainer } from '@/lib/variants';
 
 export const ProductsSection = memo(() => {
   const { t } = useTranslation();
+  const [showToast, setShowToast] = useState(false);
+
+  const handleCatalogueClick = () => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3500);
+  };
 
   const products = [
     {
@@ -79,13 +85,37 @@ export const ProductsSection = memo(() => {
               {t('catalogue.download')}
             </h3>
             <Button 
-              onClick={() => alert(t('common.comingSoon'))}
+              onClick={handleCatalogueClick}
               className="min-w-[250px]"
             >
-              Download PDF
+              <FileText className="w-4 h-4 mr-2 rtl:ml-2 rtl:mr-0" />
+              {t('catalogue.download')}
             </Button>
           </div>
         </motion.div>
+
+        {/* Toast notification */}
+        <AnimatePresence>
+          {showToast && (
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed bottom-6 end-6 z-50 flex items-center gap-3 bg-[var(--gold)] text-[#1A1200] px-5 py-3 rounded-xl text-sm font-semibold shadow-2xl"
+            >
+              <FileText className="w-4 h-4 shrink-0" />
+              <span>{t('catalogue.comingSoon')}</span>
+              <button
+                onClick={() => setShowToast(false)}
+                aria-label="Close"
+                className="ml-2 rtl:mr-2 rtl:ml-0 opacity-70 hover:opacity-100 transition-opacity"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
     </section>

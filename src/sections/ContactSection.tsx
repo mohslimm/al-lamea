@@ -53,23 +53,35 @@ export const ContactSection = memo(() => {
       }
       abortControllerRef.current = new AbortController();
 
-      const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT || "https://formspree.io/f/placeholder";
-      
+      const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT || 'https://api.web3forms.com/submit';
+
+      const payload = {
+        access_key: import.meta.env.VITE_CONTACT_ACCESS_KEY || '',
+        subject: `[AL LAMEA] New contact from ${formData.name}`,
+        from_name: 'AL LAMEA Website',
+        _template: 'table',
+        name: formData.name,
+        company: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      };
+
       const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
         signal: abortControllerRef.current.signal,
       });
 
-      if (!res.ok) throw new Error("HTTP Error");
+      if (!res.ok) throw new Error('HTTP Error');
 
       setStatus('success');
       setFormData({ name: '', company: '', email: '', phone: '', message: '' });
       
       setTimeout(() => setStatus('idle'), 4000);
-    } catch (error: any) {
-      if (error.name === 'AbortError') return;
+    } catch (error: unknown) {
+      if ((error as Error).name === 'AbortError') return;
 
       if (error instanceof z.ZodError) {
         const newErrors: Partial<Record<keyof ContactFormData, string>> = {};
@@ -234,7 +246,7 @@ export const ContactSection = memo(() => {
                 className="w-full mt-4" 
                 disabled={status === 'loading' || status === 'success'}
               >
-                {status === 'loading' ? 'Sending...' : status === 'success' ? 'Message Sent ✓' : t('contact.form.submit')}
+                {status === 'loading' ? t('contact.form.sending') : status === 'success' ? t('contact.form.sent') : t('contact.form.submit')}
               </Button>
             </div>
           </motion.div>

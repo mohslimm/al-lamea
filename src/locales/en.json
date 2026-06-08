@@ -49,7 +49,8 @@
     "protectionDesc": "Professional ceramic coatings, sealants, and premium waxes designed for specialized detailing centers and high-end automotive care."
   },
   "catalogue": {
-    "download": "Access Technical Data & Catalogue"
+    "download": "Access Technical Data & Catalogue",
+    "comingSoon": "Catalogue coming soon — contact us for details"
   },
   "brands": {
     "title": "The Strategic Bridge Between Global Leaders and Libya",
@@ -97,11 +98,15 @@
     "text": "Whether you operate a commercial service network or represent an international brand seeking market entry, our commercial team is ready to assist you.",
     "form": {
       "name": "Full Name / Representative",
+      "namePlaceholder": "Your full name",
       "company": "Organization Name",
       "email": "Business Email",
       "phone": "Direct Phone Number",
       "message": "Inquiry Details",
-      "submit": "Submit Inquiry"
+      "submit": "Submit Inquiry",
+      "sending": "Sending...",
+      "sent": "Message sent ✓",
+      "error": "Something went wrong. Please try again."
     }
   },
   "partnership": {
