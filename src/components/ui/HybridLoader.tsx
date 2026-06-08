@@ -67,7 +67,7 @@ export const HybridLoader = memo(({ onComplete }: HybridLoaderProps) => {
   // Handle video loading
   const handleVideoLoad = () => setVideoReady(true);
 
-  const subtitleText = i18n.language === 'ar' ? 'اللمعـة للكيماويات' : 'PREMIUM AUTOMOTIVE CARE';
+  const subtitleText = i18n.language === 'ar' ? 'اللمعـة للكيماويات' : 'PREMIUM CAR CARE PRODUCT';
 
   return (
     <motion.div
