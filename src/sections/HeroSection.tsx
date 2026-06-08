@@ -48,15 +48,6 @@ export const HeroSection = memo(() => {
             {t('hero.subtitle')}
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <a href="#products" className="w-full sm:w-auto">
-              <Button className="w-full">{t('hero.ctaPrimary')}</Button>
-            </a>
-            <a href="#distributor" className="w-full sm:w-auto">
-              <Button variant="ghost" className="w-full">{t('hero.ctaSecondary')}</Button>
-            </a>
-          </motion.div>
           {/* Scroll indicator */}
           <motion.div 
             initial={{ opacity: 0 }}
