@@ -119,9 +119,7 @@ export const ContactSection = memo(() => {
             >
               {t('contact.title')}
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-[var(--text-muted)] text-lg leading-relaxed mb-12">
-              {t('contact.text')}
-            </motion.p>
+
 
             <motion.div variants={staggerContainer} className="space-y-8">
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">

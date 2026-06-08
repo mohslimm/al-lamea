@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+
 import { fadeUp, staggerContainer } from '@/lib/variants';
 
 export const HeroSection = memo(() => {

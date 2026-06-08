@@ -3,7 +3,8 @@
     "viewMore": "View Details",
     "comingSoon": "In Development",
     "becomeDistributor": "Partner With Us",
-    "needAssistance": "Need assistance?"
+    "needAssistance": "Need assistance?",
+    "discover": "Discover"
   },
   "nav": {
     "home": "Overview",
@@ -15,54 +16,54 @@
   },
   "hero": {
     "badge": "AL LAMEA FOR CAR CARE PRODUCT - LIBYA",
-    "title": "Innovative Manufacturing Solutions for Automotive Care",
-    "subtitle": "AL LAMIAA is a specialized company within AL TARIQ AL LAMIAA Group, dedicated to the production, importation, and distribution of premium automotive washing and maintenance products across Libya.",
+    "title": "Libya’s Partner for Professional Automotive Care",
+    "subtitle": "AL LAMIAA is a Libyan company specialized in the manufacturing, importation and distribution of automotive care products, serving petrol stations, car wash centers, workshops and vehicle owners across Libya.",
     "ctaPrimary": "Explore Product Lines",
     "ctaSecondary": "Corporate Partnerships"
   },
   "stats": {
-    "years": "Part of a Group with 10+ years in automotive",
-    "brands": "Global Automotive Brands in the Group",
-    "continents": "International Partners across 4 continents",
-    "commitment": "100% committed to the Libyan market"
+    "group": "Backed by a group with proven automotive experience",
+    "categories": "3 Product Categories",
+    "network": "Building an international sourcing network",
+    "focus": "100% focused on the Libyan market"
   },
   "about": {
     "title": "Building the Future of Automotive Care in Libya",
     "groupTitle": "Our Group",
     "groupDesc": "AL LAMIAA Company is a member of AL TARIQ AL LAMIAA Group, one of Libya’s established automotive business groups. The Group includes AL MAYSSAM Company, the official representative of three major global automotive brands in Libya giving the Group a deep-rooted presence and expertise in the Libyan automotive sector.",
-    "whoTitle": "Who is AL LAMIAA",
-    "whoDesc": "Building on the Group’s solid automotive foundation, AL LAMIAA was established as a dedicated subsidiary to address a growing market need — providing professional, high-quality automotive care products to Libya’s petrol stations, car wash centers, garages, and vehicle owners.",
+    "whoTitle": "Who we are",
+    "whoDesc": "AL LAMIAA is part of AL TARIQ AL LAMIAA Group, a leading automotive business group in Libya that includes AL MAYSSAM — official representative of MG, Chevrolet and Foton in Libya. Building on this solid foundation, AL LAMIAA was created to address a growing market need: providing professional automotive care products through local manufacturing, importation and exclusive brand representation.",
     "pillarsIntro": "AL LAMIAA operates across three complementary pillars:",
     "pillars": {
       "production": "Local Production",
       "productionDesc": "manufacturing automotive care products in Libya",
       "importation": "Importation",
       "importationDesc": "sourcing the best international products",
-      "representation": "Brand Representation",
+      "representation": "Exclusive Distribution",
       "representationDesc": "acting as the exclusive Libyan distributor for world-leading brands"
     },
     "visionTitle": "Vision",
-    "vision": "To become Libya’s reference company in automotive care products — combining international quality standards with local production capabilities, and making professional car care accessible to every corner of Libya.",
+    "vision": "To be Libya’s leading reference in automotive care — through quality products, trusted international partnerships and local industrial development.",
     "missionTitle": "Mission",
-    "mission": "AL LAMIAA’s mission is to develop the Libyan automotive care market by offering a comprehensive product range, representing the world’s top brands exclusively, and launching local manufacturing projects that reduce import dependency, create jobs, and strengthen the Libyan economy.",
+    "mission": "To develop Libya’s automotive care market by offering a comprehensive product range, representing world-leading brands exclusively, and launching local manufacturing projects that reduce import dependency and create local value.",
     "valuesTitle": "Values",
     "values": {
-      "quality": "Quality Without Compromise",
-      "standards": "International Standards, Local Roots",
-      "innovation": "Continuous Innovation",
-      "partnerships": "Long-Term Trusted Partnerships",
-      "commitment": "Committed to Libya’s Development"
+      "quality": "Quality",
+      "innovation": "Innovation",
+      "reliability": "Reliability",
+      "partnership": "Partnership",
+      "development": "Local Development"
     }
   },
   "products": {
     "title": "Engineered for Excellence",
     "intro": "AL LAMIAA offers a carefully curated range of automotive care products, serving petrol stations, professional car wash centers, garages, and individual vehicle owners throughout Libya.",
     "wash": "Car Wash & Daily Cleaning",
-    "washDesc": "Professional washing solutions for daily use — active foam shampoos, touchless wash systems, tire and wheel cleaners, and interior care products. Specifically designed for petrol stations and car wash centers.",
+    "washDesc": "Active Foam · Shampoo · Wheel Cleaner · Tire Cleaner · Interior Cleaner\nProfessional wash solutions designed for daily use at petrol stations and car wash centers.",
     "fluids": "Automotive Fluids",
-    "fluidsDesc": "Coolants G12, G13, and Glaceol-type fluids compliant with international OEM standards — engineered to protect engines under Libya’s demanding climate and temperature conditions.",
+    "fluidsDesc": "Coolant G12 · Coolant G13 · Glaceol · Windshield Washer Fluid\nFluids compliant with international OEM standards, engineered for Libya’s climate conditions.",
     "protection": "Protection & Maintenance",
-    "protectionDesc": "Waxes, ceramic coatings, paint protection films, glass treatments, and interior care solutions — professional products for lasting vehicle protection."
+    "protectionDesc": "Wax · Ceramic Coating · Glass Care · Plastic Care\nProfessional protection products for lasting vehicle care."
   },
   "catalogue": {
     "download": "Access Technical Data & Catalogue",
@@ -70,28 +71,35 @@
   },
   "brands": {
     "title": "The Strategic Bridge Between Global Leaders and Libya",
-    "intro": "One of AL LAMIAA’s core strengths is its ability to represent and exclusively distribute the world’s most trusted automotive care brands in Libya. We are not just a distributor — we are the official bridge between global leaders and the Libyan market.",
+    "intro": "AL LAMIAA is the exclusive Libyan gateway for world-leading automotive care brands.",
     "partnersDesc": "AL LAMIAA actively establishes exclusive partnerships with the world’s leading automotive care product manufacturers — bringing their full product ranges and expertise to Libya.",
     "exclusive": "Exclusive Authorized Distributor — Libya",
     "comingSoon": "Strategic Partnerships In Progress",
     "becomePartner": "For International Manufacturers requiring Libyan Market Entry →",
-    "viewPartnership": "Review Alliance Details"
+    "viewPartnership": "Review Alliance Details",
+    "reasonsTitle": "Why work with us?",
+    "reasons": {
+      "nationalNetwork": "National Network",
+      "expertise": "Automotive Expertise",
+      "distribution": "Professional Distribution",
+      "support": "Local Support"
+    }
   },
   "production": {
     "subtitle": "Proudly Manufacturing in Libya",
-    "desc": "AL LAMIAA is taking a decisive step in transforming Libya’s automotive care industry. Beyond importing and distributing international brands, the company is actively launching local manufacturing projects to produce high-quality automotive washing and maintenance products directly in Libya.",
+    "desc": "AL LAMIAA is investing in local manufacturing to produce high-quality automotive care products made in Libya — ensuring competitive pricing, stable supply and long-term industrial development.",
     "goalsTitle": "This strategic direction will:",
-    "pricing": "Optimized Cost Structure",
-    "pricingDesc": "Offer more competitive and stable pricing to the Libyan market",
-    "jobs": "Industrial Job Creation",
-    "jobsDesc": "Create skilled local jobs and build industrial expertise",
-    "hub": "Regional Distribution Hub",
-    "hubDesc": "Position AL LAMIAA as a production hub serving the wider North African region"
+    "benefits": {
+      "madeInLibya": "Made in Libya",
+      "quality": "Quality Standards",
+      "supply": "Stable Supply",
+      "jobs": "Job Creation"
+    }
   },
   "news": {
     "title": "News & Insights",
     "badge": "LATEST UPDATES",
-    "desc": "Follow AL LAMIAA’s latest news — new partnerships, product launches, and milestones in our development journey."
+    "desc": "Latest news, partnerships and product launches from AL LAMIAA."
   },
   "future": {
     "badge": "STRATEGIC INNOVATIONS",
@@ -115,7 +123,7 @@
   "contact": {
     "address": "Tripoli, Libya",
     "title": "Let's Build Something Great Together",
-    "text": "Are you a petrol station operator, garage owner, retailer, or an international brand looking for an exclusive partner in Libya? We would be glad to hear from you.",
+    "text": "Retailer, petrol station, garage or international brand? Let’s talk.",
     "form": {
       "name": "Full Name / Representative",
       "namePlaceholder": "Your full name",

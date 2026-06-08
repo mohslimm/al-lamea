@@ -98,6 +98,37 @@ export const BrandSection = memo(() => {
           </motion.div>
         )}
 
+        {/* Why work with us */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="mt-24 max-w-5xl mx-auto"
+        >
+          <motion.h3 variants={fadeUp} className="text-2xl md:text-3xl font-display text-[var(--text-primary)] text-center mb-12">
+            {t('brands.reasonsTitle')}
+          </motion.h3>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: '🇱🇾', label: t('brands.reasons.nationalNetwork') },
+              { icon: '🚗', label: t('brands.reasons.expertise') },
+              { icon: '🚚', label: t('brands.reasons.distribution') },
+              { icon: '🛠️', label: t('brands.reasons.support') },
+            ].map((reason, idx) => (
+              <motion.div 
+                key={idx} 
+                variants={fadeUp}
+                className="bg-[rgba(255,255,255,0.02)] border border-[var(--border-subtle)] rounded-xl p-6 flex flex-col items-center text-center hover:border-[var(--border-gold)] transition-colors duration-300"
+              >
+                <span className="text-4xl mb-4 block">{reason.icon}</span>
+                <span className="text-[var(--text-primary)] font-medium">{reason.label}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
 
       <AnimatePresence>

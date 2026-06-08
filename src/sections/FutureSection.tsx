@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { fadeUp, staggerContainer } from '@/lib/variants';
-import { Laptop, Wrench } from 'lucide-react';
+import { Laptop } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 
 export const FutureSection = memo(() => {

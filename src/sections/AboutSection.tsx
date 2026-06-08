@@ -149,11 +149,11 @@ export const AboutSection = memo(() => {
           </motion.h3>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {[
-              { key: 'quality', icon: '✅' },
-              { key: 'standards', icon: '🌍' },
-              { key: 'innovation', icon: '🔄' },
-              { key: 'partnerships', icon: '🤝' },
-              { key: 'commitment', icon: '🇱🇾' }
+              { key: 'quality', icon: '🏅' },
+              { key: 'innovation', icon: '💡' },
+              { key: 'reliability', icon: '🔒' },
+              { key: 'partnership', icon: '🤝' },
+              { key: 'development', icon: '🇱🇾' }
             ].map((val) => (
               <motion.div 
                 key={val.key} 

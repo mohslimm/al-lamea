@@ -69,7 +69,11 @@ export const ProductsSection = memo(() => {
                 <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-light)] w-0 group-hover:w-full transition-all duration-500 ease-out rtl:left-auto rtl:right-0" />
                 
                 <h3 className="text-2xl font-display text-[var(--text-primary)] mb-4">{product.title}</h3>
-                <p className="text-[var(--text-muted)] leading-relaxed">{product.desc}</p>
+                <p className="text-[var(--text-muted)] leading-relaxed mb-8">{product.desc}</p>
+                <Button variant="ghost" onClick={handleCatalogueClick} className="w-full justify-between group/btn">
+                  {t('common.discover')}
+                  <span className="rtl:rotate-180 transition-transform group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1">→</span>
+                </Button>
               </div>
             </motion.div>
           ))}
