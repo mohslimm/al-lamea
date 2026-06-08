@@ -2,13 +2,14 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Box, Trophy, Handshake } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/Button';
 import { fadeUp, staggerContainer } from '@/lib/variants';
 
 export const DistributorSection = memo(() => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const features = [
     { icon: <Handshake className="w-8 h-8" />, label: t('distributor.perks.exclusive') },
@@ -62,9 +63,7 @@ export const DistributorSection = memo(() => {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <Link to="/partnership">
-              <Button className="text-lg px-8 py-4 h-auto">{t('distributor.cta')}</Button>
-            </Link>
+            <Button onClick={() => navigate('/partnership')} className="text-lg px-8 py-4 h-auto">{t('distributor.cta')}</Button>
           </motion.div>
         </motion.div>
       </div>
