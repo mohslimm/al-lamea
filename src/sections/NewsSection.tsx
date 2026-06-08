@@ -23,17 +23,23 @@ export const NewsSection = memo(() => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="mb-16"
+          className="mb-16 max-w-3xl"
         >
           <motion.div variants={fadeUp}>
             <SectionLabel>{t('news.badge')}</SectionLabel>
           </motion.div>
           <motion.h2 
             variants={fadeUp}
-            className="text-3xl md:text-5xl font-display text-[var(--text-primary)]"
+            className="text-3xl md:text-5xl font-display text-[var(--text-primary)] mb-6 mt-3"
           >
             {t('news.title')}
           </motion.h2>
+          <motion.p 
+            variants={fadeUp}
+            className="text-[var(--text-muted)] text-lg leading-relaxed"
+          >
+            {t('news.intro')}
+          </motion.p>
         </motion.div>
 
         {NEWS.length > 0 ? (

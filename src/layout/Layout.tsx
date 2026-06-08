@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import { TickerBar } from "../components/TickerBar";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { CustomCursor } from "../components/CustomCursor";
@@ -12,7 +11,6 @@ export default function Layout() {
         <>
             <BackgroundAura />
             <CustomCursor />
-            <TickerBar />
             <Header />
             <FloatingWhatsApp />
             <ScrollToTop />

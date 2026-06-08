@@ -14,64 +14,84 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "AL TARIQ AL LAMEA GROUP — LIBYA",
-    "title": "Industrial-Grade Automotive Care & Distribution",
-    "subtitle": "Advanced Local Manufacturing. Certified Global Supply Chain. Exclusive Distribution.",
+    "badge": "AL TARIQ AL LAMIAA GROUP — LIBYA",
+    "title": "Your Trusted Partner for Automotive Care in Libya",
+    "subtitle": "AL LAMIAA is a specialized company within AL TARIQ AL LAMIAA Group, dedicated to the production, importation, and distribution of premium automotive washing and maintenance products across Libya.",
     "ctaPrimary": "Explore Product Lines",
     "ctaSecondary": "Corporate Partnerships"
   },
   "stats": {
-    "years": "Decades of Market Leadership",
-    "brands": "100% Made for the Libyan Market",
-    "continents": "Newly Launched — Growing Fast",
-    "commitment": "Dedicated Libyan Infrastructure"
+    "years": "Part of a Group with 10+ years in automotive",
+    "brands": "3 Global Automotive Brands in the Group",
+    "continents": "International Partners across 4 continents",
+    "commitment": "100% committed to the Libyan market"
   },
   "about": {
-    "title": "Building the Future of Automotive Care in Libya",
-    "desc1": "AL LAMEA is an integral part of the AL TARIQ AL LAMEA GROUP, standing as a pillar of automotive excellence in Libya for over a decade. We specialize in the importation, local production, and exclusive distribution of premium automotive care products.",
-    "desc2": "Our commitment goes beyond simply selling products; we provide comprehensive solutions that empower petrol stations, garages, and retailers across the nation.",
+    "title": "من نحن / ABOUT US",
+    "badge": "ABOUT US",
+    "groupTitle": "Our Group",
+    "groupDesc": "AL LAMIAA Company is a member of AL TARIQ AL LAMIAA Group, one of Libya’s established automotive business groups. The Group includes AL MAYSSAM Company, the official representative of three major global automotive brands in Libya giving the Group a deep-rooted presence and expertise in the Libyan automotive sector.",
+    "whoTitle": "Who is AL LAMIAA",
+    "whoDesc": "Building on the Group’s solid automotive foundation, AL LAMIAA was established as a dedicated subsidiary to address a growing market need — providing professional, high-quality automotive care products to Libya’s petrol stations, car wash centers, garages, and vehicle owners.\n\nAL LAMIAA operates across three complementary pillars:",
     "pillars": {
-      "production": "Advanced Local Manufacturing",
-      "productionDesc": "Operating state-of-the-art facilities to produce certified automotive fluids and care chemicals at scale.",
-      "importation": "Premium Global Sourcing",
-      "importationDesc": "Securing and importing elite international automotive brands tailored for the North African climate.",
-      "representation": "Exclusive Authorized Distributor",
-      "representationDesc": "Acting as the sole certified distributor for leading global automotive chemical manufacturers in Libya."
+      "production": "Local Production",
+      "productionDesc": "manufacturing automotive care products in Libya",
+      "importation": "Importation",
+      "importationDesc": "sourcing the best international products",
+      "representation": "Brand Representation",
+      "representationDesc": "acting as the exclusive Libyan distributor for world-leading brands"
+    },
+    "visionTitle": "Vision",
+    "visionDesc": "To become Libya’s reference company in automotive care products — combining international quality standards with local production capabilities, and making professional car care accessible to every corner of Libya.",
+    "missionTitle": "Mission",
+    "missionDesc": "AL LAMIAA’s mission is to develop the Libyan automotive care market by offering a comprehensive product range, representing the world’s top brands exclusively, and launching local manufacturing projects that reduce import dependency, create jobs, and strengthen the Libyan economy.",
+    "valuesTitle": "Our Values",
+    "values": {
+      "quality": "Quality Without Compromise",
+      "standards": "International Standards, Local Roots",
+      "innovation": "Continuous Innovation",
+      "partnerships": "Long-Term Trusted Partnerships",
+      "development": "Committed to Libya’s Development"
     }
   },
   "products": {
-    "title": "Engineered for Excellence",
-    "wash": "Commercial Wash Systems",
-    "washDesc": "Industrial-grade active foams, touchless detergents, and high-volume cleaning agents engineered for high-traffic service stations.",
-    "fluids": "Performance Fluids",
-    "fluidsDesc": "OEM-compliant coolants (G12, G13) and essential fluids formulated specifically to withstand extreme temperature variations.",
-    "protection": "Advanced Surface Protection",
-    "protectionDesc": "Professional ceramic coatings, sealants, and premium waxes designed for specialized detailing centers and high-end automotive care."
+    "title": "PRODUCTS / منتجاتنا",
+    "intro": "AL LAMIAA offers a carefully curated range of automotive care products, serving petrol stations, professional car wash centers, garages, and individual vehicle owners throughout Libya.",
+    "wash": "Car Wash & Daily Cleaning",
+    "washDesc": "Professional washing solutions for daily use — active foam shampoos, touchless wash systems, tire and wheel cleaners, and interior care products. Specifically designed for petrol stations and car wash centers.",
+    "fluids": "Automotive Fluids",
+    "fluidsDesc": "Coolants G12, G13, and Glaceol-type fluids compliant with international OEM standards — engineered to protect engines under Libya’s demanding climate and temperature conditions.",
+    "protection": "Protection & Maintenance",
+    "protectionDesc": "Waxes, ceramic coatings, paint protection films, glass treatments, and interior care solutions — professional products for lasting vehicle protection."
   },
   "catalogue": {
     "download": "Access Technical Data & Catalogue",
     "comingSoon": "Catalogue coming soon — contact us for details"
   },
   "brands": {
-    "title": "The Strategic Bridge Between Global Leaders and Libya",
+    "title": "BRAND REPRESENTATION / تمثيل العلامات التجارية",
+    "intro": "One of AL LAMIAA’s core strengths is its ability to represent and exclusively distribute the world’s most trusted automotive care brands in Libya. We are not just a distributor — we are the official bridge between global leaders and the Libyan market.",
+    "subTitle": "Marques produits d’entretien",
+    "subDesc": "AL LAMIAA actively establishes exclusive partnerships with the world’s leading automotive care product manufacturers — bringing their full product ranges and expertise to Libya.",
     "exclusive": "Exclusive Authorized Distributor — Libya",
     "comingSoon": "Strategic Partnerships In Progress",
     "becomePartner": "For International Manufacturers requiring Libyan Market Entry →",
     "viewPartnership": "Review Alliance Details"
   },
   "production": {
-    "subtitle": "Proudly Manufacturing in Libya",
-    "desc": "AL LAMEA is committed to localizing the automotive care industry. By bringing manufacturing to Libyan soil, we ensure consistent supply, rigorous quality control adapted to local conditions, and economic growth for our community.",
-    "pricing": "Optimized Cost Structure",
-    "pricingDesc": "Leveraging local manufacturing to provide highly competitive, stable pricing without currency fluctuation risks.",
-    "jobs": "Industrial Job Creation",
-    "jobsDesc": "Investing in local infrastructure and skilled technical workforce development.",
-    "hub": "Regional Distribution Hub",
-    "hubDesc": "Positioning Libya as a central logistical access point for broader North African distribution."
+    "subtitle": "LOCAL PRODUCTION / الإنتاج المحلي",
+    "desc": "AL LAMIAA is taking a decisive step in transforming Libya’s automotive care industry. Beyond importing and distributing international brands, the company is actively launching local manufacturing projects to produce high-quality automotive washing and maintenance products directly in Libya.",
+    "pricing": "Competitive Pricing",
+    "pricingDesc": "Offer more competitive and stable pricing to the Libyan market.",
+    "jobs": "Local Employment",
+    "jobsDesc": "Create skilled local jobs and build industrial expertise.",
+    "hub": "Regional Hub",
+    "hubDesc": "Position AL LAMIAA as a production hub serving the wider North African region."
   },
   "news": {
-    "title": "News & Insights",
-    "badge": "LATEST UPDATES"
+    "title": "NEWS / الأخبار",
+    "badge": "LATEST UPDATES",
+    "intro": "Follow AL LAMIAA’s latest news — new partnerships, product launches, and milestones in our development journey."
   },
   "future": {
     "badge": "STRATEGIC INNOVATIONS",
@@ -95,7 +115,7 @@
   "contact": {
     "address": "Tripoli, Libya",
     "title": "Let's Build Something Great Together",
-    "text": "Whether you operate a commercial service network or represent an international brand seeking market entry, our commercial team is ready to assist you.",
+    "text": "Are you a petrol station operator, garage owner, retailer, or an international brand looking for an exclusive partner in Libya? We would be glad to hear from you.",
     "form": {
       "name": "Full Name / Representative",
       "namePlaceholder": "Your full name",
@@ -179,36 +199,72 @@
       "title": "Privacy Policy",
       "date": "Last updated: June 2026",
       "content": [
-        { "heading": "1. Introduction", "text": "AL TARIQ AL LAMEA GROUP respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you." },
-        { "heading": "2. The Data We Collect About You", "text": "We may collect, use, store and transfer different kinds of personal data about you including: Identity Data, Contact Data, Technical Data, Usage Data, and Marketing and Communications Data." },
-        { "heading": "3. How We Use Your Personal Data", "text": "We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances: Where we need to perform the contract we are about to enter into or have entered into with you, or where it is necessary for our legitimate interests." },
-        { "heading": "4. Data Security", "text": "We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorised way, altered or disclosed." }
+        {
+          "heading": "1. Introduction",
+          "text": "AL TARIQ AL LAMEA GROUP respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you."
+        },
+        {
+          "heading": "2. The Data We Collect About You",
+          "text": "We may collect, use, store and transfer different kinds of personal data about you including: Identity Data, Contact Data, Technical Data, Usage Data, and Marketing and Communications Data."
+        },
+        {
+          "heading": "3. How We Use Your Personal Data",
+          "text": "We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances: Where we need to perform the contract we are about to enter into or have entered into with you, or where it is necessary for our legitimate interests."
+        },
+        {
+          "heading": "4. Data Security",
+          "text": "We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorised way, altered or disclosed."
+        }
       ]
     },
     "terms": {
       "title": "Terms & Conditions",
       "date": "Last updated: June 2026",
       "content": [
-        { "heading": "1. Agreement to Terms", "text": "By accessing our website, you agree to be bound by these Terms and Conditions and agree that you are responsible for the agreement with any applicable local laws." },
-        { "heading": "2. Use License", "text": "Permission is granted to temporarily download one copy of the materials on AL TARIQ AL LAMEA GROUP's website for personal, non-commercial transitory viewing only." },
-        { "heading": "3. Disclaimer", "text": "All the materials on AL TARIQ AL LAMEA GROUP's website are provided \"as is\". AL TARIQ AL LAMEA GROUP makes no warranties, may it be expressed or implied, therefore negates all other warranties." }
+        {
+          "heading": "1. Agreement to Terms",
+          "text": "By accessing our website, you agree to be bound by these Terms and Conditions and agree that you are responsible for the agreement with any applicable local laws."
+        },
+        {
+          "heading": "2. Use License",
+          "text": "Permission is granted to temporarily download one copy of the materials on AL TARIQ AL LAMEA GROUP's website for personal, non-commercial transitory viewing only."
+        },
+        {
+          "heading": "3. Disclaimer",
+          "text": "All the materials on AL TARIQ AL LAMEA GROUP's website are provided \"as is\". AL TARIQ AL LAMEA GROUP makes no warranties, may it be expressed or implied, therefore negates all other warranties."
+        }
       ]
     },
     "cookies": {
       "title": "Cookie Policy",
       "date": "Last updated: June 2026",
       "content": [
-        { "heading": "1. What Are Cookies", "text": "As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience." },
-        { "heading": "2. How We Use Cookies", "text": "We use cookies for a variety of reasons detailed below. Unfortunately, in most cases, there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site." },
-        { "heading": "3. Disabling Cookies", "text": "You can prevent the setting of cookies by adjusting the settings on your browser. Be aware that disabling cookies will affect the functionality of this and many other websites that you visit." }
+        {
+          "heading": "1. What Are Cookies",
+          "text": "As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience."
+        },
+        {
+          "heading": "2. How We Use Cookies",
+          "text": "We use cookies for a variety of reasons detailed below. Unfortunately, in most cases, there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site."
+        },
+        {
+          "heading": "3. Disabling Cookies",
+          "text": "You can prevent the setting of cookies by adjusting the settings on your browser. Be aware that disabling cookies will affect the functionality of this and many other websites that you visit."
+        }
       ]
     },
     "legal": {
       "title": "Legal Notice / Mentions Légales",
       "date": "Last updated: June 2026",
       "content": [
-        { "heading": "1. Company Information", "text": "AL TARIQ AL LAMEA GROUP\nHeadquarters: Tripoli, Libya\nEmail: info@al-lamea.com\nPhone: +218 094 860 0012" },
-        { "heading": "2. Intellectual Property", "text": "The website and its original content, features, and functionality are owned by AL TARIQ AL LAMEA GROUP and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws." }
+        {
+          "heading": "1. Company Information",
+          "text": "AL TARIQ AL LAMEA GROUP\nHeadquarters: Tripoli, Libya\nEmail: info@al-lamea.com\nPhone: +218 094 860 0012"
+        },
+        {
+          "heading": "2. Intellectual Property",
+          "text": "The website and its original content, features, and functionality are owned by AL TARIQ AL LAMEA GROUP and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws."
+        }
       ]
     }
   }
