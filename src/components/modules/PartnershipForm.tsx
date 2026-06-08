@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from 'react';
+import { useState, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
@@ -78,11 +78,8 @@ export const PartnershipForm = memo(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const onSubmit = async (data: PartnershipFormData) => {
+  const onSubmit = async (_data: PartnershipFormData) => {
     setIsSubmitting(true);
-    // Simulate API Call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log('Form Data:', data, 'File:', uploadedFile);
     setIsSubmitting(false);
     setIsSuccess(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -110,7 +107,7 @@ export const PartnershipForm = memo(() => {
           {t('partnership.success.message')}
         </p>
         <a href="/">
-          <Button variant="outline">{t('nav.home')}</Button>
+          <Button variant="ghost">{t('nav.home')}</Button>
         </a>
       </motion.div>
     );
