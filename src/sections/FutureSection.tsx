@@ -16,13 +16,6 @@ export const FutureSection = memo(() => {
       desc: t('future.portalDesc'),
       image: '/portal_preview.png',
       status: t('common.comingSoon', 'Coming Soon')
-    },
-    {
-      icon: <Wrench className="w-5 h-5" />,
-      title: t('future.academyTitle'),
-      desc: t('future.academyDesc'),
-      image: '/academy_preview.png',
-      status: t('common.comingSoon', 'In Development')
     }
   ];
 
@@ -47,7 +40,7 @@ export const FutureSection = memo(() => {
           </motion.h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid lg:grid-cols-1 gap-8 md:gap-12 max-w-4xl mx-auto">
           {innovations.map((item, idx) => (
             <motion.div
               key={idx}
