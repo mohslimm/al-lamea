@@ -1,7 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Handshake, Box, Trophy } from 'lucide-react';
+import { Box, Trophy, Handshake } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/Button';
 import { fadeUp, staggerContainer } from '@/lib/variants';
@@ -61,9 +62,9 @@ export const DistributorSection = memo(() => {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <a href="#contact" target="_blank" rel="noopener noreferrer">
+            <Link to="/partnership">
               <Button className="text-lg px-8 py-4 h-auto">{t('distributor.cta')}</Button>
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

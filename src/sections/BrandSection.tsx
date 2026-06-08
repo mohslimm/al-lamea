@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { BrandModal } from '@/components/ui/BrandModal';
 import { fadeUp, staggerContainer } from '@/lib/variants';
+import { Link } from 'react-router-dom';
 import type { Brand } from '@/types';
 
 // Placeholder Data - would come from CMS or props in real app
@@ -85,9 +86,9 @@ export const BrandSection = memo(() => {
             <span className="text-3xl text-[var(--text-muted)] mb-4 font-display">
               {t('brands.comingSoon')}
             </span>
-            <a href="#distributor" className="text-[var(--gold)] hover:text-[var(--gold-light)] transition-colors mt-4 text-lg">
+            <Link to="/partnership" className="text-[var(--gold)] hover:text-[var(--gold-light)] transition-colors mt-4 text-lg">
               {t('brands.becomePartner')}
-            </a>
+            </Link>
           </motion.div>
         )}
 

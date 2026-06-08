@@ -104,6 +104,61 @@
       "submit": "Submit Inquiry"
     }
   },
+  "partnership": {
+    "heroTitle": "Initiate a Partnership",
+    "heroSubtitle": "We collaborate with selected partners who align with our vision.",
+    "step1": "Identity",
+    "step2": "Contact Authority",
+    "step3": "Partnership Intent",
+    "step4": "Value Proposition",
+    "step5": "Final Review",
+    "fields": {
+      "company": "Company / Brand Name",
+      "website": "Website URL",
+      "industry": "Industry Type",
+      "industryOptions": {
+        "automotive": "Automotive Manufacturing",
+        "retail": "Retail Network",
+        "chemical": "Chemical Supply",
+        "other": "Other"
+      },
+      "country": "Country",
+      "fullName": "Full Name",
+      "role": "Role / Position",
+      "email": "Business Email",
+      "linkedin": "LinkedIn Profile (Optional)",
+      "partnershipType": "Type of Partnership",
+      "typeOptions": {
+        "strategic": "Strategic Collaboration",
+        "sponsorship": "Sponsorship",
+        "technical": "Technical Integration",
+        "brand": "Brand Partnership",
+        "investment": "Investment Proposal"
+      },
+      "intent": "Short description of intent",
+      "valueUs": "What value do you bring to this partnership?",
+      "valueYou": "What are you expecting from us?",
+      "upload": "Upload Pitch Deck (PDF)",
+      "notes": "Additional Notes (Optional)",
+      "confirm": "I confirm this is a professional partnership request"
+    },
+    "actions": {
+      "next": "Continue",
+      "prev": "Back",
+      "submit": "Submit Proposal",
+      "uploading": "Uploading..."
+    },
+    "success": {
+      "title": "Proposal Received",
+      "message": "Our partnerships team will review your proposal carefully. We only pursue selected collaborations and will contact you if there is a strategic alignment."
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid business email",
+      "url": "Please enter a valid URL",
+      "confirm": "You must confirm this is a professional request"
+    }
+  },
   "footer": {
     "tagline": "Premium automotive care and industrial solutions.",
     "navigation": "Navigation",

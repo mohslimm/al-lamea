@@ -12,14 +12,6 @@ export const Footer = memo(() => {
     <footer className="bg-[var(--bg-primary)] border-t border-[var(--border-subtle)] pt-16 pb-8">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand & Info */}
-          <div className="col-span-1 md:col-span-1 flex flex-col items-center md:items-start rtl:md:items-end text-center md:text-left rtl:md:text-right">
-            <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-28 w-auto object-contain mb-6" />
-            <p className="text-[var(--text-muted)] text-sm mb-4">
-              {t('footer.tagline')}
-            </p>
-          </div>
-
           {/* Contact Details */}
           <div className="col-span-1 md:col-span-1">
             <h4 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('nav.contact')}</h4>
@@ -58,6 +50,14 @@ export const Footer = memo(() => {
               <Link to="/legal-notice" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">{t('footer.legalNotice')}</Link>
             </div>
           </div>
+
+          {/* Brand & Info */}
+          <div className="col-span-1 md:col-span-1 flex flex-col items-center md:items-end text-center md:text-right">
+            <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-28 w-auto object-contain mb-6" />
+            <p className="text-[var(--text-muted)] text-sm mb-4">
+              {t('footer.tagline')}
+            </p>
+          </div>
         </div>
 
         <div className="border-t border-[var(--border-subtle)] pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -65,7 +65,7 @@ export const Footer = memo(() => {
             {t('footer.rights', { year: new Date().getFullYear() })}
           </p>
           
-          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+          <div className="flex items-center gap-4">
             <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] transition-colors">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
             </a>

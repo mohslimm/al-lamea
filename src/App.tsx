@@ -16,6 +16,10 @@ const LegalPage = lazy<ComponentType<{ type: "privacy" | "terms" | "cookies" | "
   import("./pages/LegalPage").then((m) => ({ default: m.LegalPage }))
 );
 
+const PartnershipPage = lazy(() =>
+  import("./pages/PartnershipPage").then((m) => ({ default: m.PartnershipPage }))
+);
+
 function App() {
   const { i18n } = useTranslation();
   const [isAppReady, setIsAppReady] = useState(false);
@@ -42,6 +46,7 @@ function App() {
             <Route path="/terms-conditions" element={<LegalPage type="terms" />} />
             <Route path="/cookie-policy" element={<LegalPage type="cookies" />} />
             <Route path="/legal-notice" element={<LegalPage type="legal" />} />
+            <Route path="/partnership" element={<PartnershipPage />} />
           </Route>
         </Routes>
 

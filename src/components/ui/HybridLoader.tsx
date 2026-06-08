@@ -13,7 +13,9 @@ export const HybridLoader = memo(({ onComplete }: HybridLoaderProps) => {
   
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if user prefers reduced motion
@@ -33,96 +35,151 @@ export const HybridLoader = memo(({ onComplete }: HybridLoaderProps) => {
         }
       });
 
+      // Split text animation logic
+      const textChars = textRef.current?.querySelectorAll('.char');
+
       // 1. Entrance Sequence
-      tl.fromTo(
-        logoRef.current,
-        { 
-          opacity: 0, 
-          scale: 1.15,
-          filter: 'blur(24px)'
-        },
-        { 
-          opacity: 1, 
-          scale: 1, 
-          filter: 'blur(0px)',
-          duration: 1.6, 
-          ease: 'power3.inOut' 
-        }
-      )
-      // Glow pulse synchronized with logo appearance
+      tl.set(logoRef.current, { scale: 1.15, opacity: 0, filter: 'blur(12px)' })
+        .set(overlayRef.current, { opacity: 1 })
+        .set(videoRef.current, { opacity: 0, scale: 1.05 })
+        
+      // Fade in video slowly
+      tl.to(videoRef.current, {
+        opacity: 0.6,
+        scale: 1,
+        duration: 1.5,
+        ease: 'power2.out'
+      })
+      // Fade out the solid black overlay slightly
+      .to(overlayRef.current, {
+        opacity: 0.5,
+        duration: 1.5,
+        ease: 'power2.out'
+      }, "<")
+      
+      // Reveal the logo (scale down + blur to sharp)
+      .to(logoRef.current, {
+        opacity: 1,
+        scale: 1,
+        filter: 'blur(0px)',
+        duration: 1.6,
+        ease: 'expo.out'
+      }, "-=1.0")
+      
+      // Staggered text fade-in
       .fromTo(
-        glowRef.current,
-        { opacity: 0, scale: 0.5 },
-        { opacity: 0.6, scale: 1.2, duration: 1.6, ease: 'power2.out' },
-        "<" // start same time
+        textChars || [],
+        { opacity: 0, y: 15, filter: 'blur(6px)' },
+        {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          duration: 0.8,
+          stagger: 0.04,
+          ease: 'power3.out'
+        },
+        "-=1.0"
       )
       
-      // 2. The Suspense Pause (subtle organic breathing)
+      // 2. Suspense Pause (let it breathe)
       .to(logoRef.current, {
         scale: 0.98,
-        duration: 0.8,
-        ease: 'power1.inOut'
-      })
-      .to(glowRef.current, {
-        opacity: 0.3,
-        scale: 1,
-        duration: 0.8,
-        ease: 'power1.inOut'
-      }, "<")
+        duration: 1.2,
+        ease: 'power1.inOut',
+        yoyo: true,
+        repeat: 1
+      }, "+=0.2")
 
-      // 3. The Cinematic Exit Burst
+      // 3. Cinematic Exit Burst
       .to(logoRef.current, {
         opacity: 0,
         scale: 1.4,
-        filter: 'blur(12px)',
-        duration: 0.7,
+        filter: 'blur(15px)',
+        duration: 0.8,
         ease: 'power4.in'
       })
-      .to(glowRef.current, {
+      .to(textRef.current, {
         opacity: 0,
-        scale: 1.8,
+        y: -20,
         duration: 0.6,
+        ease: 'power3.in'
+      }, "<")
+      .to(videoRef.current, {
+        opacity: 0,
+        scale: 1.1,
+        duration: 0.8,
+        ease: 'power3.in'
+      }, "<")
+      .to(overlayRef.current, {
+        opacity: 1,
+        duration: 0.8,
         ease: 'power3.in'
       }, "<");
 
     }, containerRef);
 
-    return () => ctx.revert(); // Cleanup GSAP animations to prevent memory leaks
+    return () => ctx.revert();
   }, [onComplete]);
+
+  // Split text helper for animation
+  const subtitleText = i18n.language === 'ar' ? 'اللمعـة للكيماويات' : 'PREMIUM AUTOMOTIVE CARE';
 
   return (
     <motion.div
       ref={containerRef}
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[var(--bg-void)] overflow-hidden"
+      exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }}
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[var(--bg-void)] overflow-hidden"
     >
-      {/* Background Cinematic Noise Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        src="/preloader-video.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
       />
       
+      {/* Dark Gradient Overlay to ensure contrast */}
+      <div 
+        ref={overlayRef}
+        className="absolute inset-0 bg-[var(--bg-void)] mix-blend-multiply opacity-100"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-void)] via-transparent to-[var(--bg-void)] opacity-80 pointer-events-none" />
+
       {/* Central Composition */}
-      <div className="relative flex items-center justify-center w-full max-w-md px-6">
-        {/* Soft Radial Gold Glow */}
-        <div 
-          ref={glowRef}
-          className="absolute w-[200%] aspect-square rounded-full bg-[var(--gold)] opacity-0 mix-blend-screen pointer-events-none blur-[80px]"
-          style={{ transform: 'translate3d(0,0,0)' }}
-        />
+      <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-xl px-6 gap-10">
+        
+        {/* Soft Radial Gold Glow behind logo */}
+        <div className="absolute w-[180%] aspect-square rounded-full bg-[var(--gold)] opacity-5 mix-blend-screen pointer-events-none blur-[120px]" />
 
         {/* The Premium Logo */}
         <img 
           ref={logoRef}
           src={logoSrc} 
           alt="AL LAMEA Loading" 
-          className="relative z-10 w-full h-auto max-w-[400px] object-contain"
+          className="w-full h-auto max-w-[360px] object-contain opacity-0"
           style={{ willChange: 'transform, opacity, filter' }}
         />
+
+        {/* Staggered Subtitle Text */}
+        <div 
+          ref={textRef}
+          className="flex flex-wrap justify-center font-display text-[var(--gold)] tracking-[0.25em] uppercase text-xs md:text-sm opacity-90 drop-shadow-lg"
+        >
+          {subtitleText.split('').map((char, index) => (
+            <span 
+              key={index} 
+              className={`char inline-block ${char === ' ' ? 'w-3' : ''}`}
+              style={{ opacity: 0, willChange: 'transform, opacity' }}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
+
       </div>
     </motion.div>
   );
