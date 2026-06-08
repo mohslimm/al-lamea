@@ -67,6 +67,9 @@ export const ProductionSection = memo(() => {
             variants={staggerContainer}
             className="lg:w-[40%] flex flex-col gap-8 w-full"
           >
+            <motion.h3 variants={fadeUp} className="text-2xl font-display text-[var(--gold)] mb-2">
+              {t('production.goalsTitle')}
+            </motion.h3>
             {benefits.map((benefit, idx) => (
               <motion.div key={idx} variants={fadeUp} className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[var(--bg-surface)] border border-[var(--border-gold)] flex items-center justify-center">

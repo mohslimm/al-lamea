@@ -39,7 +39,7 @@ export const ProductsSection = memo(() => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="mb-16 text-center max-w-3xl mx-auto"
+          className="mb-16 text-center"
         >
           <motion.div variants={fadeUp}>
             <SectionLabel>{t('nav.products')}</SectionLabel>
@@ -50,10 +50,7 @@ export const ProductsSection = memo(() => {
           >
             {t('products.title')}
           </motion.h2>
-          <motion.p 
-            variants={fadeUp}
-            className="text-[var(--text-muted)] text-lg leading-relaxed"
-          >
+          <motion.p variants={fadeUp} className="text-[var(--text-muted)] text-lg max-w-3xl mx-auto leading-relaxed">
             {t('products.intro')}
           </motion.p>
         </motion.div>

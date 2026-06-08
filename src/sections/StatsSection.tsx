@@ -52,8 +52,12 @@ export const StatsSection = memo(() => {
         >
           {stats.map((stat, idx) => (
             <motion.div key={idx} variants={fadeUp} className="flex flex-col items-center text-center">
-              <div className="text-5xl md:text-7xl font-mono text-[var(--gold)] mb-4">
-                <Counter value={stat.value} suffix={stat.suffix} />
+              <div className="text-5xl md:text-7xl font-mono text-[var(--gold)] mb-4 h-[1.2em] flex items-center justify-center">
+                {typeof stat.value === 'number' ? (
+                  <Counter value={stat.value} suffix={stat.suffix} />
+                ) : (
+                  <span className="text-4xl md:text-5xl">{stat.value}</span>
+                )}
               </div>
               <p className="text-sm md:text-base text-[var(--text-muted)] font-medium max-w-[200px]">
                 {stat.label}

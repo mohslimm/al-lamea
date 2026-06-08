@@ -35,7 +35,7 @@ export const Header = memo(() => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
+          "fixed top-[36px] left-0 right-0 z-40 transition-all duration-300",
           isScrolled ? "bg-[rgba(11,25,41,0.85)] backdrop-blur-lg border-b border-[var(--border-subtle)] py-4 shadow-lg" : "bg-transparent py-6"
         )}
       >
@@ -94,7 +94,7 @@ export const Header = memo(() => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-[var(--bg-void)] bg-opacity-95 backdrop-blur-xl flex flex-col pt-0"
+            className="fixed inset-0 z-50 bg-[var(--bg-void)] bg-opacity-95 backdrop-blur-xl flex flex-col pt-[36px]"
           >
             <div className="flex justify-between items-center p-6 border-b border-[var(--border-subtle)]">
               <img src={logoSrc} alt="AL LAMEA" width="150" height="48" className="h-16 w-auto object-contain" />

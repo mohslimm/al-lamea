@@ -34,24 +34,11 @@ export const BrandSection = memo(() => {
           >
             {t('brands.title')}
           </motion.h2>
-          <motion.p 
-            variants={fadeUp}
-            className="text-[var(--text-muted)] text-lg leading-relaxed mb-8"
-          >
+          <motion.p variants={fadeUp} className="text-[var(--text-muted)] text-lg leading-relaxed mb-6">
             {t('brands.intro')}
           </motion.p>
-          <div className="w-12 h-px bg-[var(--gold)] mx-auto mb-8 opacity-40" />
-          <motion.h3 
-            variants={fadeUp}
-            className="text-xl md:text-2xl font-display text-[var(--gold)] mb-4"
-          >
-            {t('brands.subTitle')}
-          </motion.h3>
-          <motion.p 
-            variants={fadeUp}
-            className="text-[var(--text-muted)] text-base leading-relaxed"
-          >
-            {t('brands.subDesc')}
+          <motion.p variants={fadeUp} className="text-[var(--text-muted)] text-lg leading-relaxed">
+            {t('brands.partnersDesc')}
           </motion.p>
         </motion.div>
 
