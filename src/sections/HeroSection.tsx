@@ -10,12 +10,36 @@ export const HeroSection = memo(() => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-[180px] md:pt-[240px] pb-20 overflow-hidden">
+
+      {/* Background image — Ken Burns zoom */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.08 }}
+        transition={{ duration: 14, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' }}
+        style={{ willChange: 'transform' }}
+      >
+        <img
+          src="/hero-bg.webp"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+        />
+      </motion.div>
+
+      {/* Blur layer */}
+      <div className="absolute inset-0 z-[1] backdrop-blur-[2px]" />
+
+      {/* Dark overlay — low opacity */}
+      <div className="absolute inset-0 z-[2] bg-black/60" />
       
       {/* Rotating Hexagon */}
       <motion.div 
         animate={{ rotate: 360 }}
         transition={{ duration: 120, ease: "linear", repeat: Infinity }}
-        className="absolute w-[800px] h-[800px] border border-[var(--border-subtle)] opacity-20 pointer-events-none rounded-full"
+        className="absolute w-[800px] h-[800px] border border-[var(--border-subtle)] opacity-20 pointer-events-none rounded-full z-[3]"
       />
 
       <div className="container mx-auto px-6 max-w-5xl relative z-10 text-center flex flex-col items-center">
