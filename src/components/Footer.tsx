@@ -13,6 +13,14 @@ export const Footer = memo(() => {
     <footer className="bg-[var(--bg-primary)] border-t border-[var(--border-subtle)] pt-16 pb-8">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Brand & Info — first in DOM = leftmost in LTR, rightmost in RTL */}
+          <div className="col-span-1 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-start">
+            <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-28 w-auto object-contain mb-6" />
+            <p className="text-[var(--text-muted)] text-sm mb-4">
+              {t('footer.tagline')}
+            </p>
+          </div>
+
           {/* Contact Details */}
           <div className="col-span-1 md:col-span-1">
             <h4 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('nav.contact')}</h4>
@@ -55,14 +63,6 @@ export const Footer = memo(() => {
               <Link to="/cookie-policy" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">{t('footer.cookies')}</Link>
               <Link to="/legal-notice" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors">{t('footer.legalNotice')}</Link>
             </div>
-          </div>
-
-          {/* Brand & Info */}
-          <div className={`col-span-1 md:col-span-1 flex flex-col items-center text-center ${i18n.language === 'ar' ? 'md:order-first md:items-start md:text-start' : 'md:items-end md:text-right'}`}>
-            <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-28 w-auto object-contain mb-6" />
-            <p className="text-[var(--text-muted)] text-sm mb-4">
-              {t('footer.tagline')}
-            </p>
           </div>
         </div>
 
