@@ -9,28 +9,32 @@ export const HeroSection = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-[180px] md:pt-[240px] pb-20 overflow-hidden">
+    <section id="home" className="relative min-h-[auto] md:min-h-screen flex items-center justify-center pt-[180px] md:pt-[240px] pb-10 md:pb-20 overflow-hidden">
 
       {/* Background image — Ken Burns zoom */}
       <motion.div
-        className="absolute inset-0 z-0"
+        className="absolute inset-x-0 bottom-0 top-16 md:top-0 z-0"
         initial={{ scale: 1 }}
         animate={{ scale: 1.08 }}
         transition={{ duration: 14, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' }}
-        style={{ willChange: 'transform' }}
+        style={{ 
+          willChange: 'transform',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'
+        }}
       >
         <img
           src="/hero-bg.webp"
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain md:object-cover"
           loading="eager"
           fetchPriority="high"
         />
       </motion.div>
 
-      {/* Blur layer */}
-      <div className="absolute inset-0 z-[1] backdrop-blur-[2px]" />
+      {/* Blur layer - only on desktop to keep mobile clear */}
+      <div className="absolute inset-0 z-[1] backdrop-blur-none md:backdrop-blur-[2px]" />
 
       {/* Dark overlay — low opacity */}
       <div className="absolute inset-0 z-[2] bg-black/60" />
@@ -77,7 +81,7 @@ export const HeroSection = memo(() => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
-            className="mt-16 md:mt-24"
+            className="mt-8 md:mt-24"
           >
             <motion.a 
               href="#stats"
