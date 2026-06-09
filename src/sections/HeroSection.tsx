@@ -67,7 +67,7 @@ export const HeroSection = memo(() => {
           {/* Subtitle */}
           <motion.p 
             variants={fadeUp}
-            className="text-lg md:text-xl text-[var(--text-muted)] tracking-widest font-light uppercase mb-12"
+            className="text-lg md:text-xl text-[rgba(240,237,232,0.80)] tracking-widest font-light uppercase mb-12"
           >
             {t('hero.subtitle')}
           </motion.p>
