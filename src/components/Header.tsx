@@ -36,13 +36,18 @@ export const Header = memo(() => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
-          isScrolled ? "bg-[rgba(11,25,41,0.85)] backdrop-blur-lg border-b border-[var(--border-subtle)] py-4 shadow-lg" : "bg-transparent py-6"
+          isScrolled
+            ? "bg-[rgba(11,25,41,0.85)] backdrop-blur-lg border-b border-[var(--border-subtle)] shadow-lg py-2 lg:py-4"
+            : "bg-transparent py-4 lg:py-6"
         )}
       >
         <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
           
-          {/* Logo */}
-          <div className="flex-shrink-0">
+          {/* Logo — hidden on mobile when scrolled */}
+          <div className={cn(
+            "flex-shrink-0 transition-all duration-300 overflow-hidden",
+            isScrolled ? "max-h-0 opacity-0 pointer-events-none lg:max-h-40 lg:opacity-100 lg:pointer-events-auto" : "max-h-40 opacity-100"
+          )}>
             <a href="/#home" className="block transition-transform hover:scale-105 duration-300">
               <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-20 md:h-28 w-auto object-contain" />
             </a>
