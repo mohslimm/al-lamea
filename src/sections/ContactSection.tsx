@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/Button';
 import { fadeUp, staggerContainer } from '@/lib/variants';
-import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_PHONE_2, CONTACT_WHATSAPP } from '@/lib/constants';
+import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_WHATSAPP } from '@/lib/constants';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -123,25 +123,41 @@ export const ContactSection = memo(() => {
 
             <motion.div variants={staggerContainer} className="space-y-8">
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
-                <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5 text-[var(--gold)]" />
                 </div>
-                <span className="font-mono">{CONTACT_EMAIL}</span>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="font-mono hover:text-[var(--gold-500)] transition-colors"
+                >
+                  {CONTACT_EMAIL}
+                </a>
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
                 <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-[var(--gold)]" />
                 </div>
-                <div className="flex flex-col" dir="ltr">
-                  <span className="font-mono">{CONTACT_PHONE_1}</span>
-                  <span className="font-mono text-[var(--text-muted)] mt-1">{CONTACT_PHONE_2}</span>
-                </div>
+                <a
+                  href={`tel:${CONTACT_PHONE_1.replace(/\s+/g, '')}`}
+                  className="font-mono hover:text-[var(--gold-500)] transition-colors"
+                  dir="ltr"
+                >
+                  {CONTACT_PHONE_1}
+                </a>
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
-                <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
                   <img src="/whatsapp.png?v=6" alt="WhatsApp" className="w-8 h-8 object-contain" />
                 </div>
-                <span className="font-mono" dir="ltr">{CONTACT_WHATSAPP}</span>
+                <a
+                  href={`https://wa.me/${CONTACT_WHATSAPP.replace(/[\s+]/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono hover:text-[var(--gold-500)] transition-colors"
+                  dir="ltr"
+                >
+                  {CONTACT_WHATSAPP}
+                </a>
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
                 <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center">
