@@ -99,6 +99,9 @@ export const HybridLoader = memo(({ onComplete }: HybridLoaderProps) => {
           alt="AL LAMEA Loading"
           className="w-full h-auto max-w-[360px] object-contain opacity-0"
           style={{ willChange: 'transform, opacity, filter' }}
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
 
         <div ref={textRef} className="flex flex-wrap justify-center font-display text-[var(--gold)] tracking-[0.25em] uppercase text-xs md:text-sm opacity-90 drop-shadow-lg">

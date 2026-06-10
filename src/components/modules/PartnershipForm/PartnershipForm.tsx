@@ -1,13 +1,11 @@
-import { useState, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { CheckCircle2, ChevronRight, ChevronLeft, UploadCloud, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { usePartnershipForm } from './usePartnershipForm';
+import type { PartnershipFormData } from './PartnershipForm.types';
 
-// CONSTANTS
 const VARIANTS = {
   container: { animate: { transition: { staggerChildren: 0.08 } } },
   item: {
@@ -19,97 +17,8 @@ const VARIANTS = {
 
 export const PartnershipForm = memo(() => {
   const { t } = useTranslation();
-  const [step, setStep] = useState(1);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
-
-  // Dynamic Validation Schema using Translations
-  const partnershipSchema = z.object({
-    company: z.string().min(2, { message: t('partnership.validation.required') }),
-    website: z.string().url({ message: t('partnership.validation.url') }),
-    industry: z.string().min(1, { message: t('partnership.validation.required') }),
-    country: z.string().min(2, { message: t('partnership.validation.required') }),
-    fullName: z.string().min(2, { message: t('partnership.validation.required') }),
-    role: z.string().min(2, { message: t('partnership.validation.required') }),
-    email: z.string().email({ message: t('partnership.validation.email') }),
-    linkedin: z.string().optional(),
-    partnershipType: z.string().min(1, { message: t('partnership.validation.required') }),
-    intent: z.string().min(10, { message: t('partnership.validation.required') }),
-    valueUs: z.string().min(10, { message: t('partnership.validation.required') }),
-    valueYou: z.string().min(10, { message: t('partnership.validation.required') }),
-    notes: z.string().optional(),
-    confirm: z.boolean().refine(val => val === true, {
-      message: t('partnership.validation.confirm')
-    })
-  });
-
-  type PartnershipFormData = z.infer<typeof partnershipSchema>;
-
-  const {
-    register,
-    handleSubmit,
-    trigger,
-    formState: { errors }
-  } = useForm<PartnershipFormData>({
-    resolver: zodResolver(partnershipSchema),
-    mode: 'onTouched',
-    defaultValues: {
-      confirm: false
-    }
-  });
-
-  const handleNext = async () => {
-    let fieldsToValidate: (keyof PartnershipFormData)[] = [];
-    if (step === 1) fieldsToValidate = ['company', 'website', 'industry', 'country'];
-    if (step === 2) fieldsToValidate = ['fullName', 'role', 'email', 'linkedin'];
-    if (step === 3) fieldsToValidate = ['partnershipType', 'intent'];
-    if (step === 4) fieldsToValidate = ['valueUs', 'valueYou'];
-
-    const isValid = await trigger(fieldsToValidate);
-    if (isValid) {
-      setStep(prev => prev + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handlePrev = () => {
-    setStep(prev => prev - 1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const onSubmit = async (data: PartnershipFormData) => {
-    setIsSubmitting(true);
-    try {
-      const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT || 'https://api.web3forms.com/submit';
-      const payload = {
-        access_key: import.meta.env.VITE_CONTACT_ACCESS_KEY || '',
-        subject: `[AL LAMEA] Partnership Request from ${data.company}`,
-        from_name: 'AL LAMEA Partnership Portal',
-        _template: 'table',
-        ...data,
-      };
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error('HTTP Error');
-      setIsSuccess(true);
-    } catch {
-      // In demo mode (no access_key), silently succeed
-      setIsSuccess(true);
-    } finally {
-      setIsSubmitting(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setUploadedFile(e.target.files[0]);
-    }
-  };
+  const form = usePartnershipForm();
+  const { step, isSubmitting, isSuccess, isError, uploadedFile, register, errors, handleNext, handlePrev, onSubmit, handleFileUpload } = form;
 
   if (isSuccess) {
     return (
@@ -133,43 +42,58 @@ export const PartnershipForm = memo(() => {
     );
   }
 
-  const renderInput = (name: keyof PartnershipFormData, label: string, type = 'text', placeholder = '') => (
-    <div className="mb-6 w-full text-start">
-      <label className="block text-sm font-medium text-[var(--text-primary)] mb-2 uppercase tracking-wider opacity-80">{label}</label>
-      {type === 'textarea' ? (
-        <textarea
-          {...register(name)}
-          placeholder={placeholder}
-          rows={4}
-          className={`w-full bg-[var(--bg-elevated)] border ${errors[name] ? 'border-[var(--danger)] focus:border-[var(--danger)]' : 'border-[var(--border-subtle)] focus:border-[var(--gold)]'} rounded-xl px-5 py-4 text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] transition-all resize-none`}
-        />
-      ) : (
-        <input
-          {...register(name)}
-          type={type}
-          placeholder={placeholder}
-          className={`w-full bg-[var(--bg-elevated)] border ${errors[name] ? 'border-[var(--danger)] focus:border-[var(--danger)]' : 'border-[var(--border-subtle)] focus:border-[var(--gold)]'} rounded-xl px-5 py-4 text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] transition-all`}
-        />
-      )}
-      {errors[name] && <span className="text-[var(--danger)] text-xs mt-2 block">{errors[name]?.message as string}</span>}
-    </div>
-  );
+  const renderInput = (name: keyof PartnershipFormData, label: string, type = 'text', placeholder = '') => {
+    const errorId = `${name}-error`;
+    return (
+      <div className="mb-6 w-full text-start">
+        <label htmlFor={name} className="block text-sm font-medium text-[var(--text-primary)] mb-2 uppercase tracking-wider opacity-80">{label}</label>
+        {type === 'textarea' ? (
+          <textarea
+            id={name}
+            {...register(name)}
+            placeholder={placeholder}
+            rows={4}
+            aria-invalid={errors[name] ? "true" : "false"}
+            aria-describedby={errors[name] ? errorId : undefined}
+            className={`w-full bg-[var(--bg-elevated)] border ${errors[name] ? 'border-[var(--danger)] focus:border-[var(--danger)]' : 'border-[var(--border-subtle)] focus:border-[var(--gold)]'} rounded-xl px-5 py-4 text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] transition-all resize-none`}
+          />
+        ) : (
+          <input
+            id={name}
+            {...register(name)}
+            type={type}
+            placeholder={placeholder}
+            aria-invalid={errors[name] ? "true" : "false"}
+            aria-describedby={errors[name] ? errorId : undefined}
+            className={`w-full bg-[var(--bg-elevated)] border ${errors[name] ? 'border-[var(--danger)] focus:border-[var(--danger)]' : 'border-[var(--border-subtle)] focus:border-[var(--gold)]'} rounded-xl px-5 py-4 text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] transition-all`}
+          />
+        )}
+        {errors[name] && <span id={errorId} className="text-[var(--danger)] text-xs mt-2 block" aria-live="polite">{errors[name]?.message as string}</span>}
+      </div>
+    );
+  };
 
-  const renderSelect = (name: keyof PartnershipFormData, label: string, options: { value: string; label: string }[]) => (
-    <div className="mb-6 w-full text-start">
-      <label className="block text-sm font-medium text-[var(--text-primary)] mb-2 uppercase tracking-wider opacity-80">{label}</label>
-      <select
-        {...register(name)}
-        className={`w-full bg-[var(--bg-elevated)] border ${errors[name] ? 'border-[var(--danger)] focus:border-[var(--danger)]' : 'border-[var(--border-subtle)] focus:border-[var(--gold)]'} rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] transition-all appearance-none cursor-pointer`}
-      >
-        <option value="">{t('common.viewMore')}...</option>
-        {options.map(opt => (
-          <option key={opt.value} value={opt.value}>{opt.label}</option>
-        ))}
-      </select>
-      {errors[name] && <span className="text-[var(--danger)] text-xs mt-2 block">{errors[name]?.message as string}</span>}
-    </div>
-  );
+  const renderSelect = (name: keyof PartnershipFormData, label: string, options: { value: string; label: string }[]) => {
+    const errorId = `${name}-error`;
+    return (
+      <div className="mb-6 w-full text-start">
+        <label htmlFor={name} className="block text-sm font-medium text-[var(--text-primary)] mb-2 uppercase tracking-wider opacity-80">{label}</label>
+        <select
+          id={name}
+          {...register(name)}
+          aria-invalid={errors[name] ? "true" : "false"}
+          aria-describedby={errors[name] ? errorId : undefined}
+          className={`w-full bg-[var(--bg-elevated)] border ${errors[name] ? 'border-[var(--danger)] focus:border-[var(--danger)]' : 'border-[var(--border-subtle)] focus:border-[var(--gold)]'} rounded-xl px-5 py-4 text-[var(--text-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] transition-all appearance-none cursor-pointer`}
+        >
+          <option value="">{t('common.viewMore')}...</option>
+          {options.map(opt => (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
+        {errors[name] && <span id={errorId} className="text-[var(--danger)] text-xs mt-2 block" aria-live="polite">{errors[name]?.message as string}</span>}
+      </div>
+    );
+  };
 
   return (
     <div className="w-full max-w-3xl mx-auto">
@@ -200,7 +124,15 @@ export const PartnershipForm = memo(() => {
           {step === 5 && t('partnership.step5')}
         </h2>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={onSubmit}>
+          {isError && (
+            <div className="mb-8 p-4 rounded-xl bg-[rgba(239,68,68,0.1)] border border-[var(--danger)] text-[var(--danger)] text-sm flex items-center gap-3">
+              <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <span>{t('contact.form.error', 'Transmission failed. Please try again.')}</span>
+            </div>
+          )}
           <AnimatePresence mode="wait">
             <motion.div
               key={step}

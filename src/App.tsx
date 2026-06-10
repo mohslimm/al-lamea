@@ -7,6 +7,7 @@ import { MotionConfig, AnimatePresence } from "framer-motion";
 
 import Layout from "./layout/Layout";
 import { HybridLoader } from "./components/ui/HybridLoader";
+import { ErrorBoundary } from "./components/ui/ErrorBoundary";
 
 const HomePage = lazy(() =>
   import("./pages/HomePage").then((m) => ({ default: m.HomePage }))
@@ -38,9 +39,9 @@ function App() {
       </AnimatePresence>
 
       <Suspense fallback={<div className="min-h-screen bg-[var(--bg-void)]"></div>}>
-
-        <Routes>
-          <Route element={<Layout />}>
+        <ErrorBoundary>
+          <Routes>
+            <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/privacy-policy" element={<LegalPage type="privacy" />} />
             <Route path="/terms-conditions" element={<LegalPage type="terms" />} />
@@ -49,7 +50,7 @@ function App() {
             <Route path="/partnership" element={<PartnershipPage />} />
           </Route>
         </Routes>
-
+        </ErrorBoundary>
       </Suspense>
 
       <Analytics />

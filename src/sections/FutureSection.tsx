@@ -56,6 +56,8 @@ export const FutureSection = memo(() => {
                   src={item.image} 
                   alt={item.title} 
                   className="w-full h-full object-cover opacity-80 mix-blend-lighten group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute top-6 right-6 z-20 rtl:right-auto rtl:left-6">
                   <Badge variant="default" className="bg-[var(--bg-void)]/80 backdrop-blur-md border-[var(--border-gold)] text-[var(--gold-500)] uppercase tracking-wider text-xs font-semibold">

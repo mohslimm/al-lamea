@@ -1,21 +1,29 @@
 import { Outlet } from "react-router-dom";
+import { Suspense, lazy } from "react";
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { CustomCursor } from "../components/CustomCursor";
-import { BackgroundAura } from "../components/BackgroundAura";
-import { FloatingWhatsApp } from "../components/ui/FloatingWhatsApp";
-import { ScrollToTop } from "../components/ui/ScrollToTop";
+
+// Lazy load non-critical visual flairs and interaction-dependent components
+const CustomCursor = lazy(() => import("../components/CustomCursor").then(m => ({ default: m.CustomCursor })));
+const BackgroundAura = lazy(() => import("../components/BackgroundAura").then(m => ({ default: m.BackgroundAura })));
+const FloatingWhatsApp = lazy(() => import("../components/ui/FloatingWhatsApp").then(m => ({ default: m.FloatingWhatsApp })));
+const ScrollToTop = lazy(() => import("../components/ui/ScrollToTop").then(m => ({ default: m.ScrollToTop })));
 
 export default function Layout() {
     return (
         <>
-            <BackgroundAura />
-            <CustomCursor />
+            <Suspense fallback={null}>
+                <BackgroundAura />
+                <CustomCursor />
+            </Suspense>
 
             <Header />
-            <FloatingWhatsApp />
-            <ScrollToTop />
+            
+            <Suspense fallback={null}>
+                <FloatingWhatsApp />
+                <ScrollToTop />
+            </Suspense>
 
             <Outlet />
 

@@ -9,7 +9,7 @@ export const HeroSection = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <section id="home" className="relative min-h-[auto] md:min-h-screen flex items-center justify-center pt-[180px] md:pt-[240px] pb-10 md:pb-20 overflow-hidden">
+    <section id="home" className="relative min-h-[auto] md:min-h-screen flex items-center justify-center pt-[120px] md:pt-[240px] pb-10 md:pb-20 overflow-hidden">
 
       {/* Background image — Ken Burns zoom */}
       <motion.div
@@ -27,9 +27,10 @@ export const HeroSection = memo(() => {
           src="/hero-bg.webp"
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-contain md:object-cover"
+          className="w-full h-full object-cover object-[center_top] md:object-center"
           loading="eager"
           fetchPriority="high"
+          decoding="sync"
         />
       </motion.div>
 

@@ -1,9 +1,9 @@
 import { Suspense, lazy } from 'react';
 import { HeroSection } from '../sections/HeroSection';
-import { StatsSection } from '../sections/StatsSection';
-import { AboutSection } from '../sections/AboutSection';
 
 // Lazy loading below the fold components
+const StatsSection = lazy(() => import('../sections/StatsSection').then(m => ({ default: m.StatsSection })));
+const AboutSection = lazy(() => import('../sections/AboutSection').then(m => ({ default: m.AboutSection })));
 const ProductsSection = lazy(() => import('../sections/ProductsSection').then(m => ({ default: m.ProductsSection })));
 const BrandSection = lazy(() => import('../sections/BrandSection').then(m => ({ default: m.BrandSection })));
 const ProductionSection = lazy(() => import('../sections/ProductionSection').then(m => ({ default: m.ProductionSection })));
@@ -16,10 +16,10 @@ export const HomePage = () => {
   return (
     <main>
       <HeroSection />
-      <StatsSection />
-      <AboutSection />
       
-      <Suspense fallback={<div className="h-screen flex items-center justify-center bg-[var(--bg-void)] text-[var(--gold-500)]">Loading...</div>}>
+      <Suspense fallback={<div className="min-h-[10vh] flex items-center justify-center bg-[var(--bg-void)] text-[var(--gold-500)] opacity-50 tracking-widest text-sm uppercase">Loading...</div>}>
+        <StatsSection />
+        <AboutSection />
         <ProductsSection />
         <BrandSection />
         <ProductionSection />

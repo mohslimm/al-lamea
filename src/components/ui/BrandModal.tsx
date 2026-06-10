@@ -45,7 +45,7 @@ export const BrandModal = memo(({ brand, isOpen, onClose }: BrandModalProps) => 
         <div className="flex flex-col items-center text-center space-y-6">
           <div className="h-24 w-48 flex items-center justify-center bg-[var(--bg-elevated)] rounded-lg border border-[var(--border-subtle)] p-4">
             {brand.logoUrl ? (
-              <img src={brand.logoUrl} alt={brand.name} width="400" height="400" className="w-full h-full object-contain p-8" />
+              <img src={brand.logoUrl} alt={brand.name} width="400" height="400" className="w-full h-full object-contain p-8" loading="lazy" decoding="async" />
             ) : (
               <span className="font-display text-2xl text-[var(--text-primary)]">{brand.name}</span>
             )}

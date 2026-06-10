@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: "https://al-lamea.vercel.app",
+      hostname: "https://www.allamea.com",
       dynamicRoutes: [
         "/",
         "/privacy-policy",

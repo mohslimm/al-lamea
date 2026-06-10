@@ -63,6 +63,8 @@ export const BrandSection = memo(() => {
                       width="400"
                       height="400"
                       className="max-w-[80%] max-h-[60%] object-contain opacity-70 group-hover:opacity-100 transition-opacity" 
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="flex flex-col items-center gap-3">

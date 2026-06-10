@@ -72,9 +72,9 @@ export const AboutSection = memo(() => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[160px] sm:h-[300px] lg:h-[400px] w-full rounded-2xl overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center"
+            className="relative aspect-[4/3] md:aspect-[16/7] lg:aspect-[21/9] w-full rounded-2xl overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] flex items-center justify-center"
           >
-            <img src="/infrastructure_premium.png" alt="Automotive Care" width="800" height="400" className="w-full h-full object-cover opacity-90 mix-blend-lighten" />
+            <img src="/infrastructure_premium.png" alt="Automotive Care" width="800" height="400" className="w-full h-full object-cover object-[center_center] opacity-90 mix-blend-lighten" loading="lazy" decoding="async" />
           </motion.div>
         </div>
 

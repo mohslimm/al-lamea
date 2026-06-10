@@ -70,7 +70,7 @@ export const ProductsSection = memo(() => {
                 
                 <h3 className="text-2xl font-display text-[var(--text-primary)] mb-4">{product.title}</h3>
                 <p className="text-[var(--text-muted)] leading-relaxed mb-8">{product.desc}</p>
-                <Button variant="ghost" onClick={handleCatalogueClick} className="w-full justify-between group/btn">
+                <Button variant="ghost" onClick={handleCatalogueClick} className="w-full justify-between group/btn h-12">
                   {t('common.discover')}
                   <span className="rtl:rotate-180 transition-transform group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1">→</span>
                 </Button>
@@ -93,7 +93,7 @@ export const ProductsSection = memo(() => {
             </h3>
             <Button 
               onClick={handleCatalogueClick}
-              className="min-w-[250px]"
+              className="min-w-[250px] h-12"
             >
               <FileText className="w-4 h-4 mr-2 rtl:ml-2 rtl:mr-0" />
               {t('catalogue.download')}

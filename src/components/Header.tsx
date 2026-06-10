@@ -20,6 +20,17 @@ export const Header = memo(() => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { label: t('nav.home'), href: '/#home' },
     { label: t('nav.about'), href: '/#about' },
@@ -49,7 +60,7 @@ export const Header = memo(() => {
             isScrolled ? "max-h-0 opacity-0 pointer-events-none lg:max-h-40 lg:opacity-100 lg:pointer-events-auto" : "max-h-40 opacity-100"
           )}>
             <a href="/#home" className="block transition-transform hover:scale-105 duration-300">
-              <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-20 md:h-28 w-auto object-contain" />
+              <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-20 md:h-28 w-auto object-contain" loading="eager" fetchPriority="high" decoding="sync" />
             </a>
           </div>
 
@@ -96,13 +107,14 @@ export const Header = memo(() => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-[var(--bg-void)] bg-opacity-95 backdrop-blur-xl flex flex-col pt-0"
+            initial={{ x: i18n.dir() === 'rtl' ? '100%' : '-100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: i18n.dir() === 'rtl' ? '100%' : '-100%', opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 min-h-[100dvh] z-50 bg-[var(--bg-void)] bg-opacity-95 backdrop-blur-xl flex flex-col pt-0"
           >
             <div className="flex justify-between items-center p-6 border-b border-[var(--border-subtle)]">
-              <img src={logoSrc} alt="AL LAMEA" width="150" height="48" className="h-16 w-auto object-contain" />
+              <img src={logoSrc} alt="AL LAMEA" width="150" height="48" className="h-16 w-auto object-contain" loading="lazy" decoding="async" />
               <button onClick={() => setIsMobileMenuOpen(false)} className="text-[var(--text-primary)]">
                 <X className="w-6 h-6" />
               </button>
@@ -117,19 +129,19 @@ export const Header = memo(() => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-display text-[var(--text-primary)]"
+                  className="text-2xl font-display text-[var(--text-primary)] py-3 px-6"
                 >
                   {link.label}
                 </motion.a>
               ))}
               
-              <div className="pt-8 flex flex-col items-center space-y-6">
+              <div className="pt-8 flex flex-col items-center space-y-6 w-full px-8">
                 <LanguageToggle />
-                <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button className="w-full bg-[var(--gold)] text-[#1A1200] hover:bg-[var(--gold-light)]">{t('nav.contact')}</Button>
+                <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+                  <Button className="w-full h-12 bg-[var(--gold)] text-[#1A1200] hover:bg-[var(--gold-light)]">{t('nav.contact')}</Button>
                 </a>
-                <a href="/#distributor" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="ghost">{t('common.becomeDistributor')}</Button>
+                <a href="/#distributor" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+                  <Button variant="ghost" className="w-full h-12">{t('common.becomeDistributor')}</Button>
                 </a>
               </div>
             </nav>
