@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { fadeUp, staggerContainer } from '@/lib/variants';
+import { LibyaFlagIcon } from '@/components/ui/LibyaFlagIcon';
 
 export const ProductionSection = memo(() => {
   const { t } = useTranslation();
@@ -54,7 +55,7 @@ export const ProductionSection = memo(() => {
             </motion.h3>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: '🇱🇾', label: t('production.benefits.madeInLibya') },
+                { icon: <LibyaFlagIcon className="w-8 h-auto" />, label: t('production.benefits.madeInLibya') },
                 { icon: '✅', label: t('production.benefits.quality') },
                 { icon: '📦', label: t('production.benefits.supply') },
                 { icon: '👷', label: t('production.benefits.jobs') },

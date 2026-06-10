@@ -5,6 +5,7 @@ import { Factory, Package, ShieldCheck } from 'lucide-react';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Card } from '@/components/ui/Card';
 import { fadeUp, staggerContainer } from '@/lib/variants';
+import { LibyaFlagIcon } from '@/components/ui/LibyaFlagIcon';
 
 export const AboutSection = memo(() => {
   const { t } = useTranslation();
@@ -153,7 +154,7 @@ export const AboutSection = memo(() => {
               { key: 'innovation', icon: '💡' },
               { key: 'reliability', icon: '🔒' },
               { key: 'partnership', icon: '🤝' },
-              { key: 'development', icon: '🇱🇾' }
+              { key: 'development', icon: <LibyaFlagIcon className="w-5 h-auto" /> }
             ].map((val) => (
               <motion.div 
                 key={val.key} 

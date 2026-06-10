@@ -5,6 +5,7 @@ import { SectionLabel } from '@/components/ui/SectionLabel';
 import { BrandModal } from '@/components/ui/BrandModal';
 import { fadeUp, staggerContainer } from '@/lib/variants';
 import { Link } from 'react-router-dom';
+import { LibyaFlagIcon } from '@/components/ui/LibyaFlagIcon';
 import type { Brand } from '@/types';
 
 // Placeholder Data - would come from CMS or props in real app
@@ -114,7 +115,7 @@ export const BrandSection = memo(() => {
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: '🇱🇾', label: t('brands.reasons.nationalNetwork') },
+              { icon: <LibyaFlagIcon className="w-10 h-auto" />, label: t('brands.reasons.nationalNetwork') },
               { icon: '🚗', label: t('brands.reasons.expertise') },
               { icon: '🚚', label: t('brands.reasons.distribution') },
               { icon: '🛠️', label: t('brands.reasons.support') },

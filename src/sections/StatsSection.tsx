@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer } from '@/lib/variants';
+import { LibyaFlagIcon } from '@/components/ui/LibyaFlagIcon';
 
 export const StatsSection = memo(() => {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ export const StatsSection = memo(() => {
     { value: "🏢", label: t('stats.group') },
     { value: "🛢️", label: t('stats.categories') },
     { value: "🌍", label: t('stats.network') },
-    { value: "🇱🇾", label: t('stats.focus') },
+    { value: <LibyaFlagIcon className="w-12 md:w-16 h-auto" />, label: t('stats.focus') },
   ];
 
   return (
