@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { motion } from 'framer-motion';
-import { useLang, Language } from './LanguageContext';
+import { useLang } from './LanguageContext';
+import type { Language } from './LanguageContext';
 
 export const LanguageSwitcher = memo(() => {
   const { lang, setLang } = useLang();
