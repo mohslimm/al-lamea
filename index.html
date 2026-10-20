@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#060610" />
     <title>AL LAMEA | Premium Automotive & Industrial Solutions</title>
     
     <!-- SEO Primary Meta Tags -->
@@ -27,7 +28,7 @@
 
     <!-- Performance: LCP Preloads -->
     <link rel="preload" as="image" href="/hero-bg.webp" fetchpriority="high" />
-    <link rel="preload" as="image" href="/logo.png?v=4" fetchpriority="high" />
+    <link rel="preload" as="image" href="/logo.webp" fetchpriority="high" type="image/webp" />
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/favicon.ico?v=4">
@@ -36,10 +37,21 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4">
     <link rel="manifest" href="/site.webmanifest?v=4">
 
-    <!-- Fonts (swap strategy for CLS + Subset) -->
+    <!-- Fonts: async load to eliminate render-blocking —
+         Preload the 2 heaviest woff2 files (Cormorant arabic + Cormorant regular)
+         so the browser fetches them in parallel with the CSS parse. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Outfit:wght@100..900&family=Tajawal:wght@300;400;500;700&family=JetBrains+Mono:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Non-blocking font CSS: load as 'print' then switch to 'all' once loaded -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Outfit:wght@300;400;500&family=Tajawal:wght@300;400;500;700&family=JetBrains+Mono:ital,wght@0,400;1,400&display=swap"
+      media="print"
+      onload="this.media='all'"
+    >
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Outfit:wght@300;400;500&family=Tajawal:wght@300;400;500;700&family=JetBrains+Mono:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">

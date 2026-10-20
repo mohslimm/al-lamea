@@ -27,6 +27,8 @@ export const HeroSection = memo(() => {
           src="/hero-bg.webp"
           alt=""
           aria-hidden="true"
+          width="1024"
+          height="1024"
           className="w-full h-full object-cover object-[center_top] md:object-center"
           loading="eager"
           fetchPriority="high"

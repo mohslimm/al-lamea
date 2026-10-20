@@ -19,7 +19,7 @@ interface HybridLoaderProps {
 export const HybridLoader = memo(({ onComplete }: HybridLoaderProps) => {
   const { i18n } = useTranslation();
   const [videoReady, setVideoReady] = useState(false);
-  const logoSrc = i18n.language === 'ar' ? '/logo-ar.png?v=5' : '/logo.png?v=5';
+  const logoSrc = i18n.language === 'ar' ? '/logo-ar.webp' : '/logo.webp';
 
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
@@ -97,6 +97,8 @@ export const HybridLoader = memo(({ onComplete }: HybridLoaderProps) => {
           ref={logoRef}
           src={logoSrc}
           alt="AL LAMEA Loading"
+          width="360"
+          height="403"
           className="w-full h-auto max-w-[360px] object-contain opacity-0"
           style={{ willChange: 'transform, opacity, filter' }}
           loading="eager"

@@ -147,7 +147,7 @@ export const ContactSection = memo(() => {
               </motion.div>
               <motion.div variants={fadeUp} className="flex items-center gap-4 text-[var(--text-primary)]">
                 <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
-                  <img src="/whatsapp.png?v=6" alt="WhatsApp" className="w-8 h-8 object-contain" width="32" height="32" loading="lazy" decoding="async" />
+                  <img src="/whatsapp.webp" alt="WhatsApp" className="w-8 h-8 object-contain" width="512" height="512" loading="lazy" decoding="async" />
                 </div>
                 <a
                   href={`https://wa.me/${CONTACT_WHATSAPP.replace(/[\s+]/g, '')}`}
@@ -194,8 +194,10 @@ export const ContactSection = memo(() => {
                   {errors.name && <p id="name-error" className="text-[var(--danger)] text-xs mt-1">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.company')}</label>
+                  <label htmlFor="company" className="block text-sm font-medium text-[var(--text-muted)] mb-2 uppercase tracking-wide">{t('contact.form.company')}</label>
                   <input
+                    type="text"
+                    id="company"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}

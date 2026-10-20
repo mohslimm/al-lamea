@@ -8,7 +8,7 @@ import { LanguageToggle } from './LanguageToggle';
 
 export const Header = memo(() => {
   const { t, i18n } = useTranslation();
-  const logoSrc = i18n.language === 'ar' ? '/logo-ar.png?v=5' : '/logo.png?v=5';
+  const logoSrc = i18n.language === 'ar' ? '/logo-ar.webp' : '/logo.webp';
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

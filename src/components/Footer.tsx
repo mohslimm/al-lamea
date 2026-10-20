@@ -7,7 +7,7 @@ import { CONTACT_EMAIL, CONTACT_PHONE_1, CONTACT_WHATSAPP } from '../lib/constan
 
 export const Footer = memo(() => {
   const { t, i18n } = useTranslation();
-  const logoSrc = i18n.language === 'ar' ? '/logo-ar.png?v=5' : '/logo.png?v=5';
+  const logoSrc = i18n.language === 'ar' ? '/logo-ar.webp' : '/logo.webp';
 
   return (
     <footer className="bg-[var(--bg-primary)] border-t border-[var(--border-subtle)] pt-16 pb-8">
@@ -16,15 +16,15 @@ export const Footer = memo(() => {
           {/* Brand & Info — first in DOM = leftmost in LTR, rightmost in RTL */}
           <div className="col-span-1 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-start">
             <img src={logoSrc} alt="AL LAMEA / اللامع" width="200" height="80" className="h-28 w-auto object-contain mb-6" loading="lazy" decoding="async" />
-            <p className="text-[var(--text-muted)] text-sm mb-4">
+            <p className="text-[rgba(240,237,232,0.70)] text-sm mb-4">
               {t('footer.tagline')}
             </p>
           </div>
 
           {/* Contact Details */}
           <div className="col-span-1 md:col-span-1">
-            <h4 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('nav.contact')}</h4>
-            <div className="space-y-2 text-[var(--text-muted)] text-sm">
+            <h3 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('nav.contact')}</h3>
+            <div className="space-y-2 text-[rgba(240,237,232,0.70)] text-sm">
               <p className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[var(--gold-500)] shrink-0" />
                 <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-[var(--gold-500)] transition-colors">{CONTACT_EMAIL}</a>
@@ -46,28 +46,28 @@ export const Footer = memo(() => {
 
           {/* Quick Links */}
           <div className="col-span-1 md:col-span-1">
-            <h4 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('footer.navigation')}</h4>
+            <h3 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('footer.navigation')}</h3>
             <div className="space-y-2 flex flex-col">
-              <a href="/#about" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('nav.about')}</a>
-              <a href="/#products" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('nav.products')}</a>
-              <a href="/#brands" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('nav.brands')}</a>
+              <a href="/#about" className="text-[rgba(240,237,232,0.70)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('nav.about')}</a>
+              <a href="/#products" className="text-[rgba(240,237,232,0.70)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('nav.products')}</a>
+              <a href="/#brands" className="text-[rgba(240,237,232,0.70)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('nav.brands')}</a>
             </div>
           </div>
 
           {/* Legal Links */}
           <div className="col-span-1 md:col-span-1">
-            <h4 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('footer.legal')}</h4>
+            <h3 className="text-[var(--text-primary)] font-display text-lg mb-4">{t('footer.legal')}</h3>
             <div className="space-y-2 flex flex-col">
-              <Link to="/privacy-policy" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('footer.privacy')}</Link>
-              <Link to="/terms-conditions" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('footer.terms')}</Link>
-              <Link to="/cookie-policy" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('footer.cookies')}</Link>
-              <Link to="/legal-notice" className="text-[var(--text-muted)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('footer.legalNotice')}</Link>
+              <Link to="/privacy-policy" className="text-[rgba(240,237,232,0.70)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('footer.privacy')}</Link>
+              <Link to="/terms-conditions" className="text-[rgba(240,237,232,0.70)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('footer.terms')}</Link>
+              <Link to="/cookie-policy" className="text-[rgba(240,237,232,0.70)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('footer.cookies')}</Link>
+              <Link to="/legal-notice" className="text-[rgba(240,237,232,0.70)] hover:text-[var(--gold-500)] text-sm transition-colors py-2 md:py-0">{t('footer.legalNotice')}</Link>
             </div>
           </div>
         </div>
 
         <div className="border-t border-[var(--border-subtle)] pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[var(--text-muted)] text-xs">
+          <p className="text-[rgba(240,237,232,0.70)] text-xs">
             {t('footer.rights', { year: new Date().getFullYear() })}
           </p>
           
